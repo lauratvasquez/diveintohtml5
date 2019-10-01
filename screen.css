@@ -65,35 +65,44 @@ Acknowledgements & Inspirations
 @font-face {
   font-family: 'Essays 1743';
   src: url('f/essays1743-webfont.eot');
-  src: local('Essays 1743'), url('f/essays1743-webfont.woff') format('woff'), url('f/essays1743-webfont.ttf') format('truetype');
+  src: local('Essays 1743'), url('f/essays1743-webfont.woff') format('woff'),
+    url('f/essays1743-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Essays 1743';
   src: url('f/essays1743-italic-webfont.eot');
-  src: local('Essays 1743'), url('f/essays1743-italic-webfont.woff') format('woff'), url('f/essays1743-italic-webfont.ttf') format('truetype');
+  src: local('Essays 1743'),
+    url('f/essays1743-italic-webfont.woff') format('woff'),
+    url('f/essays1743-italic-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: 'Linux Libertine';
   src: url('f/linlibertine_re-4.7.5-webfont.eot');
-  src: local('Linux Libertine'), url('f/linlibertine_re-4.7.5-webfont.woff') format('woff'), url('f/linlibertine_re-4.7.5-webfont.ttf') format('truetype');
+  src: local('Linux Libertine'),
+    url('f/linlibertine_re-4.7.5-webfont.woff') format('woff'),
+    url('f/linlibertine_re-4.7.5-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Linux Libertine';
   src: url('f/linlibertine_bd-4.1.5-webfont.eot');
-  src: local('Linux Libertine'), url('f/linlibertine_bd-4.1.5-webfont.woff') format('woff'), url('f/linlibertine_bd-4.1.5-webfont.ttf') format('truetype');
+  src: local('Linux Libertine'),
+    url('f/linlibertine_bd-4.1.5-webfont.woff') format('woff'),
+    url('f/linlibertine_bd-4.1.5-webfont.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: 'Linux Libertine';
   src: url('f/linlibertine_it-4.2.6-webfont.eot');
-  src: local('Linux Libertine'), url('f/linlibertine_it-4.2.6-webfont.woff') format('woff'), url('f/linlibertine_it-4.2.6-webfont.ttf') format('truetype');
+  src: local('Linux Libertine'),
+    url('f/linlibertine_it-4.2.6-webfont.woff') format('woff'),
+    url('f/linlibertine_it-4.2.6-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
 }
@@ -102,29 +111,40 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-html, body {
+html,
+body {
   background: #fff;
   color: #000;
   margin: 0;
   padding: 0;
 }
 body {
-  font: large/1.556 "Linux Libertine", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+  font: large/1.556 'Linux Libertine', Palatino, 'Palatino Linotype',
+    'Book Antiqua', Georgia, 'Times New Roman', serif;
   word-spacing: 0.1em;
   max-width: 960px;
   margin: 0 auto;
   padding-bottom: 2em;
 }
-pre, kbd, samp, code, var {
-  font: medium/1.75 Consolas, "Andale Mono", Monaco, "Liberation Mono", "Bitstream Vera Sans Mono", "DejaVu Sans Mono", monospace;
+pre,
+kbd,
+samp,
+code,
+var {
+  font: medium/1.75 Consolas, 'Andale Mono', Monaco, 'Liberation Mono',
+    'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', monospace;
   word-spacing: 0;
   letter-spacing: 0;
 }
-.a, .u, table.bc tbody td {
-  font: 100%/1 "Arial Unicode MS", FreeSerif, OpenSymbol, "DejaVu Sans", sans-serif;
+.a,
+.u,
+table.bc tbody td {
+  font: 100%/1 'Arial Unicode MS', FreeSerif, OpenSymbol, 'DejaVu Sans',
+    sans-serif;
 }
 .baa {
-  font: oblique 105% Constantia, Baskerville, Palatino, "Palatino Linotype", "URW Palladio L", serif;
+  font: oblique 105% Constantia, Baskerville, Palatino, 'Palatino Linotype',
+    'URW Palladio L', serif;
 }
 .note {
   margin: 3.112em 4.94em;
@@ -153,7 +173,9 @@ pre, kbd, samp, code, var {
   margin-bottom: 5px;
   -ms-interpolation-mode: bicubic;
 }
-p, ul, ol {
+p,
+ul,
+ol {
   font-size: large;
   margin: 1.556em 0;
 }
@@ -163,22 +185,27 @@ p, ul, ol {
 .clear {
   clear: both;
 }
-.c, .a, #toc, form div {
+.c,
+.a,
+#toc,
+form div {
   clear: both;
   text-align: center;
 }
 
-#toc ol, #toc li {
+#toc ol,
+#toc li {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
 }
 .a {
   font-size: xx-large;
-  line-height: .875;
+  line-height: 0.875;
   text-shadow: 0 0 2px #667;
 }
-.pf, .fr {
+.pf,
+.fr {
   border: 1px solid;
 }
 .pf {
@@ -188,13 +215,15 @@ p, ul, ol {
   min-height: 253px;
   margin: 0 15px 0 0;
   padding: 0 154px 1.75em 0;
-  background: white url(i/openclipart.org_johnny_automatic_little_professor.png) bottom right no-repeat;
+  background: white url(i/openclipart.org_johnny_automatic_little_professor.png)
+    bottom right no-repeat;
 }
 .pf .moneybags {
   min-height: 245px;
   margin: 0 15px 0 0;
   padding: 0 190px 1.75em 0;
-  background: white url(i/openclipart.org_johnny_automatic_bag_of_money.png) bottom right no-repeat;
+  background: white url(i/openclipart.org_johnny_automatic_bag_of_money.png)
+    bottom right no-repeat;
 }
 .pf h4 {
   margin: 0;
@@ -207,7 +236,10 @@ p, ul, ol {
   margin: 0 0 1.75em 1.75em;
   font-size: medium;
 }
-address, cite, dfn, var {
+address,
+cite,
+dfn,
+var {
   font-style: normal;
 }
 sup {
@@ -228,7 +260,8 @@ a:visited {
   color: RosyBrown;
   border-bottom: 1px dotted;
 }
-a:link:hover, a:visited:hover {
+a:link:hover,
+a:visited:hover {
   border-bottom: 1px solid;
 }
 .c a {
@@ -238,7 +271,9 @@ a:link:hover, a:visited:hover {
 /* figures and legends */
 
 .legend {
-  font: italic x-large/1.75 "Essays 1743","Marker Felt","Kristen ITC","Viner Hand ITC","Lucida Handwriting",Amienne,Boopee,"Segoe Print","Times New Roman",serif;
+  font: italic x-large/1.75 'Essays 1743', 'Marker Felt', 'Kristen ITC',
+    'Viner Hand ITC', 'Lucida Handwriting', Amienne, Boopee, 'Segoe Print',
+    'Times New Roman', serif;
   text-shadow: 0 0 1px #667;
   margin-left: 0.5em;
   vertical-align: top;
@@ -258,9 +293,9 @@ a:link:hover, a:visited:hover {
   display: block;
 }
 .bottom {
-  display:block;
-  margin-top:0;
-  margin-left:2em;
+  display: block;
+  margin-top: 0;
+  margin-left: 2em;
 }
 
 /* code blocks */
@@ -285,17 +320,27 @@ mark {
 
 /* overrides */
 
-li ol, .q, .v span {
+li ol,
+.q,
+.v span {
   margin: 0;
 }
-code, var, samp {
-  line-height:inherit !important;
+code,
+var,
+samp {
+  line-height: inherit !important;
 }
 
 /* headers */
 
-h1, h2, h3, h4, caption, thead th {
-  font-family: "Essays 1743", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+h1,
+h2,
+h3,
+h4,
+caption,
+thead th {
+  font-family: 'Essays 1743', Palatino, 'Palatino Linotype', 'Book Antiqua',
+    Georgia, 'Times New Roman', serif;
   font-weight: normal;
   text-transform: uppercase;
   text-shadow: 0 0 1px #667;
@@ -321,7 +366,7 @@ h3 {
   text-align: center;
 }
 h1:before {
-  content: "№" counter(h1) ".";
+  content: '№' counter(h1) '.';
 }
 
 /* video */
@@ -332,21 +377,25 @@ video {
 
 /* browser compatibility and other tables */
 
-.bc, .st {
-  width:100%;
-  border-collapse:collapse;
+.bc,
+.st {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.bc tbody th, .bc thead th.l, tfoot td {
-  text-align:left;
+.bc tbody th,
+.bc thead th.l,
+tfoot td {
+  text-align: left;
 }
 
-.bc thead th, .bc td {
-  text-align:center;
+.bc thead th,
+.bc td {
+  text-align: center;
 }
 
 tfoot {
-  font-size:small;
+  font-size: small;
 }
 
 .st {
