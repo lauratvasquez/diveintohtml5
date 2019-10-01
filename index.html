@@ -1,12 +1,11 @@
+---
+# this is an empty front matter
+---
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8" />
     <title>Dive Into HTML5</title>
-    <meta
-      name="google-site-verification"
-      content="NxswEnu4smCCQGi2KjtWBH72HuM29LT2VAXv41g-SUU"
-    />
     <link
       rel="alternate"
       type="application/atom+xml"
@@ -273,12 +272,7 @@
         />&nbsp;<input type="submit" name="sa" value="Pesquisar" />
       </div>
     </form>
-    <script
-      type="text/javascript"
-      async=""
-      src="https://www.google-analytics.com/analytics.js"
-    ></script
-    ><script src="j/jquery.js"></script>
+    <script src="j/jquery.js"></script>
     <script src="j/dih5.js"></script>
     <script>
       $(function() {
@@ -295,17 +289,7 @@
         });
       });
     </script>
-    <script
-      async=""
-      src="https://www.googletagmanager.com/gtag/js?id=UA-6074143-4"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'UA-6074143-4');
-    </script>
+
+    {% include google-analytics.html %}
   </body>
 </html>

@@ -1,3 +1,6 @@
+---
+# this is an empty front matter
+---
 <!DOCTYPE html>
 <html
   lang="pt-br"
@@ -826,26 +829,10 @@ halma.html
         />&nbsp;<input type="submit" name="sa" value="Search" />
       </div>
     </form>
-    <script
-      type="text/javascript"
-      async=""
-      src="https://www.google-analytics.com/analytics.js"
-    ></script
-    ><script src="j/jquery.js"></script>
+    <script src="j/jquery.js"></script>
     <script src="j/modernizr.js"></script>
     <script src="j/dih5.js"></script>
 
-    <script
-      async=""
-      src="https://www.googletagmanager.com/gtag/js?id=UA-6074143-4"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'UA-6074143-4');
-    </script>
+    {% include google-analytics.html %}
   </body>
 </html>
