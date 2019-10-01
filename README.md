@@ -11,16 +11,16 @@ Disponível também no [formato ePub](http://readlists.com/6d1a2c53/).
 
 ### ~~Seja um tradutor~~
 
-~~Primeiro você precisa saber quem está traduzindo o quê. Para isso [confira essa página](https://github.com/zenorocha/diveintohtml5/wiki/Tradu%C3%A7%C3%A3o).~~
+~~Primeiro você precisa saber quem está traduzindo o quê. Para isso [confira essa página](https://github.com/webfatorial/diveintohtml5/wiki/Tradu%C3%A7%C3%A3o).~~
 
 ~~Depois é só escolher uma página que ainda não está sendo traduzido e voilá!~~
 
 ### Seja um revisor
 
-Primeiro você precisa saber quem está revisando o quê. Para isso [confira essa página](https://github.com/zenorocha/diveintohtml5/wiki/Revis%C3%A3o).
+Primeiro você precisa saber quem está revisando o quê. Para isso [confira essa página](https://github.com/webfatorial/diveintohtml5/wiki/Revis%C3%A3o).
 
 Depois é só escolher algo que ainda não está sendo revisado e voilá!
 
 ### Reporte um erro
 
-Caso encontre algum erro de tradução, por favor nos avise através das [issues](https://github.com/zenorocha/diveintohtml5/issues).
+Caso encontre algum erro de tradução, por favor nos avise através das [issues](https://github.com/webfatorial/diveintohtml5/issues).
