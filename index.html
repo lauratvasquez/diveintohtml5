@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="screen.css" />
     <style>
       h1:before {
-        content: "";
+        content: '';
       }
       h1,
       h2,
@@ -282,16 +282,16 @@
     <script src="j/dih5.js"></script>
     <script>
       $(function() {
-        $("ol").css("list-style", "none");
-        $("li").each(function(i) {
+        $('ol').css('list-style', 'none');
+        $('li').each(function(i) {
           var num = i;
-          if ($(this).hasClass("app")) {
+          if ($(this).hasClass('app')) {
             num = String.fromCharCode(53 + num);
           }
           $(this)
-            .wrapInner("<span class=title></span>")
-            .append("<span class=number>" + num + "</span>")
-            .css("background", "#fff url(i/dot.png) repeat-x 0 0.8em");
+            .wrapInner('<span class=title></span>')
+            .append('<span class=number>' + num + '</span>')
+            .css('background', '#fff url(i/dot.png) repeat-x 0 0.8em');
         });
       });
     </script>
@@ -304,8 +304,8 @@
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag("js", new Date());
-      gtag("config", "UA-6074143-4");
+      gtag('js', new Date());
+      gtag('config', 'UA-6074143-4');
     </script>
   </body>
 </html>
