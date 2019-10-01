@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>&lt;input autofocus> fallback - Dive Into HTML 5</title>
+    <!--[if lt IE 9]><script src="../j/html5.js"></script><![endif]-->
+    <link rel="stylesheet" href="style-html5.css" />
+    <meta name="viewport" content="initial-scale=1.0" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="robots" content="noindex" />
-  <title>&lt;input autofocus> fallback - Dive Into HTML 5</title>
-  <!--[if lt IE 9]><script src="../j/html5.js"></script><![endif]-->
-  <link rel="stylesheet" href="style-html5.css" />
-  <meta name=viewport content='initial-scale=1.0' />
-</head>
+  <body>
+    <form>
+      <input id="q" autofocus />
+      <input type="submit" value="Go" />
+    </form>
 
-<body>
-
-  <form>
-    <input id="q" autofocus>
-    <input type="submit" value="Go">
-  </form>
-
-  <pre><code>&lt;form name="f">
+    <pre><code>&lt;form name="f">
   &lt;input id="q" autofocus>
   &lt;input type="submit" value="Go">
 &lt;/form>
@@ -30,18 +28,30 @@
   }
 &lt;/script></code></pre>
 
-    <p>Nota: <code>window.onload</code> dispara <em>depois</em> de todas as imagens terem sido carregadas. Se a sua página possui muitas imagens, o script acima poderia potencialmente mudar o foco do campo "q" depois do usuário ter iniciado a interagir com outra parte da sua página (é por isso que usuários experientes odeiam scripts de autofoco). Se o seu site já utiliza uma biblioteca JavaScript como jQuery, você pode suaviar esse atraso usando <a href="http://docs.jquery.com/Tutorials:Introducing_$(document).ready()"><code>$(document).ready()</code></a> ao invés de <code>window.onload</code>.
+    <p>
+      Nota: <code>window.onload</code> dispara <em>depois</em> de todas as
+      imagens terem sido carregadas. Se a sua página possui muitas imagens, o
+      script acima poderia potencialmente mudar o foco do campo "q" depois do
+      usuário ter iniciado a interagir com outra parte da sua página (é por isso
+      que usuários experientes odeiam scripts de autofoco). Se o seu site já
+      utiliza uma biblioteca JavaScript como jQuery, você pode suaviar esse
+      atraso usando
+      <a href="http://docs.jquery.com/Tutorials:Introducing_$(document).ready()"
+        ><code>$(document).ready()</code></a
+      >
+      ao invés de <code>window.onload</code>.
+    </p>
 
-  <p><a href=../forms.html#autofocus>&larr; voltar para Dive Into HTML 5</a>
+    <p>
+      <a href="../forms.html#autofocus">&larr; voltar para Dive Into HTML 5</a>
 
-  <script>
-    window.onload = function() {
-      if (!("autofocus" in document.createElement("input"))) {
-        document.getElementById("q").focus();
-      }
-    }
-  </script>
-
-</body>
-
+      <script>
+        window.onload = function() {
+          if (!("autofocus" in document.createElement("input"))) {
+            document.getElementById("q").focus();
+          }
+        };
+      </script>
+    </p>
+  </body>
 </html>

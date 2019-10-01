@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>&lt;input autofocus> with jQuery fallback - Dive Into HTML 5</title>
+    <!--[if lt IE 9]><script src="../j/html5.js"></script><![endif]-->
+    <script src="../j/jquery.js"></script>
+    <script>
+      $(document).ready(function() {
+        if (!("autofocus" in document.createElement("input"))) {
+          $("#q").focus();
+        }
+      });
+    </script>
+    <link rel="stylesheet" href="style-html5.css" />
+    <meta name="viewport" content="initial-scale=1.0" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="robots" content="noindex" />
-  <title>&lt;input autofocus> with jQuery fallback - Dive Into HTML 5</title>
-  <!--[if lt IE 9]><script src="../j/html5.js"></script><![endif]-->
-  <script src="../j/jquery.js"></script>
-  <script>
-    $(document).ready(function() {
-      if (!("autofocus" in document.createElement("input"))) {
-        $("#q").focus();
-      }
-    });
-  </script>
-  <link rel="stylesheet" href="style-html5.css" />
-  <meta name=viewport content='initial-scale=1.0' />
-</head>
+  <body>
+    <form>
+      <input id="q" autofocus />
+      <input type="submit" value="Go" />
+    </form>
 
-<body>
-
-  <form>
-    <input id="q" autofocus>
-    <input type="submit" value="Go">
-  </form>
-
-  <pre><code>&lt;head>
+    <pre><code>&lt;head>
   &lt;script src="jquery.js">&lt;/script>
   &lt;script>
     $(document).ready(function() {
@@ -43,10 +41,20 @@
 &lt;/body>
 </code></pre>
 
-  <p>jQuery executa o evento personalizado <code>ready</code> logo que o <abbr>DOM</abbr> estiver disponível &mdash; isto é, ele espera até que todo o texto da página carregue, mas não espera até todas as imagens. Não está perto do ideal &mdash; se a página for consideravelmente grande ou a conexão de internet for extremamente baixa, o usuário pode começar a interagir com a página antes do seu script de foco automático execute. Mas é muito melhor que esperar o <code>window.onload</code></p>
+    <p>
+      jQuery executa o evento personalizado <code>ready</code> logo que o
+      <abbr>DOM</abbr> estiver disponível &mdash; isto é, ele espera até que
+      todo o texto da página carregue, mas não espera até todas as imagens. Não
+      está perto do ideal &mdash; se a página for consideravelmente grande ou a
+      conexão de internet for extremamente baixa, o usuário pode começar a
+      interagir com a página antes do seu script de foco automático execute. Mas
+      é muito melhor que esperar o <code>window.onload</code>
+    </p>
 
-  <p><a href=../forms.html#more-on-focus>&larr; voltar para Dive Into HTML 5</a>
-
-</body>
-
+    <p>
+      <a href="../forms.html#more-on-focus"
+        >&larr; voltar para Dive Into HTML 5</a
+      >
+    </p>
+  </body>
 </html>
