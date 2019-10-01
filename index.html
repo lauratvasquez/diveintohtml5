@@ -1,90 +1,311 @@
 <!DOCTYPE html>
-<html lang=pt-br>
-<meta charset=utf-8>
-<title>Dive Into HTML5</title>
-<meta name="google-site-verification" content="NxswEnu4smCCQGi2KjtWBH72HuM29LT2VAXv41g-SUU">
-<link rel=alternate type=application/atom+xml href=https://github.com/webfatorial/diveintohtml5/commits/gh-pages.atom>
-<link rel=alternate href=http://diveintohtml5.info/ hreflang=en>
-<link rel=stylesheet href=screen.css>
-<style>
-h1:before{content:''}
-h1,h2,h3{padding:0;margin:0;border:0;text-align:center;clear:both}
-h1{margin-top:80px;font-size:72px;text-transform:uppercase;line-height:128px;}
-h2{font-size:48px;line-height:128px;}
-h3{line-height:40px;}
-ol{margin:1em 0 0 0;padding:0}
-li{clear:both;width:100%;margin:0 0 1em 0;padding:0;overflow:hidden}
-.title,.number{background:#fff}
-.title{float:left;padding-right:3px}
-.number{margin:0;float:right;padding-left:3px}
-.f{margin-top:6.224em}
-</style>
-<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
-<link rel=prefetch href=introduction.html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dive Into HTML5</title>
+    <meta
+      name="google-site-verification"
+      content="NxswEnu4smCCQGi2KjtWBH72HuM29LT2VAXv41g-SUU"
+    />
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      href="https://github.com/webfatorial/diveintohtml5/commits/gh-pages.atom"
+    />
+    <link rel="alternate" href="http://diveintohtml5.info/" hreflang="en" />
+    <link rel="stylesheet" href="screen.css" />
+    <style>
+      h1:before {
+        content: "";
+      }
+      h1,
+      h2,
+      h3 {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        text-align: center;
+        clear: both;
+      }
+      h1 {
+        margin-top: 80px;
+        font-size: 72px;
+        text-transform: uppercase;
+        line-height: 128px;
+      }
+      h2 {
+        font-size: 48px;
+        line-height: 128px;
+      }
+      h3 {
+        line-height: 40px;
+      }
+      ol {
+        margin: 1em 0 0 0;
+        padding: 0;
+      }
+      li {
+        clear: both;
+        width: 100%;
+        margin: 0 0 1em 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      .title,
+      .number {
+        background: #fff;
+      }
+      .title {
+        float: left;
+        padding-right: 3px;
+      }
+      .number {
+        margin: 0;
+        float: right;
+        padding-left: 3px;
+      }
+      .f {
+        margin-top: 6.224em;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      media="only screen and (max-device-width: 480px)"
+      href="mobile.css"
+    />
+    <link rel="prefetch" href="introduction.html" />
+  </head>
+  <body cz-shortcut-listen="true">
+    <a href="https://github.com/webfatorial/diveintohtml5"
+      ><img
+        style="position: absolute; top: 0; right: 0; border: 0;"
+        src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+        alt="Fork me on GitHub"
+    /></a>
 
-<a href="https://github.com/webfatorial/diveintohtml5"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-
-<hgroup>
-<h1>Dive Into HTML5</h1>
-<h2>por<br>Mark Pilgrim</h2>
-<h3>100% traduzido<br> pela <a href="team.html">comunidade</a></h3>
-<!-- <h3>traduzido com</h3>
+    <hgroup>
+      <h1>Dive Into HTML5</h1>
+      <h2>por<br />Mark Pilgrim</h2>
+      <h3>
+        100% traduzido<br />
+        pela <a href="team.html">comunidade</a>
+      </h3>
+      <!-- <h3>traduzido com</h3>
 <h3>contribuições da comunidade <a href="team.html">(?)</a></h3> -->
-</hgroup>
+    </hgroup>
 
-<p class=a>&#x2767;
+    <p class="a">❧</p>
+    <p class="f">
+      <img src="i/aoc-d.png" alt="D" width="104" height="105" />ive Into
+      <abbr>HTML5</abbr> procura elaborar uma seleção de funcionalidades da
+      especificação da <a href="http://www.whatwg.org/html5">HTML5</a> e outras
+      especificações interessantes escolhidas a dedo. O manuscrito final foi
+      publicado no formato em papel pela editora O’Reilly, sobre a marca da
+      Google Press.
+      <a
+        href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027"
+        >Compre a obra impressa</a
+      >
+      — entitulada como “HTML5: Up <i class="baa">&amp;</i> Running”. Esse
+      trabalho permanece online sob os termos da licença
+      <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"
+        >CC-BY-3.0</a
+      >. Seu <a href="about.html">feedback</a> será sempre bem-vindo.
+    </p>
+    <p>
+      Nota: Com o súbito abandono de Mark Pilgrim da internet, surgiu a
+      iniciativa de dar continuidade ao seu trabalho; levando-o para ainda mais
+      pessoas através da tradução para língua portuguesa. Nossa ideia é manter
+      ativamente esse projeto; atualizando e refletindo o relevante e atual
+      estado da HTML5, assim como tinha sido feito enquanto estava em posse de
+      Mark. Para mais informações sobre como contribuir nesse processo de
+      tradução ou reportar erros encontrados,
+      <a href="https://github.com/webfatorial/diveintohtml5"
+        >acesse nosso Github</a
+      >.
+    </p>
+    <h3>Sumário</h3>
 
-<p class=f><img src=i/aoc-d.png alt=D width=104 height=105>ive Into <abbr>HTML5</abbr> procura elaborar uma seleção de funcionalidades da especificação da <a href=http://www.whatwg.org/html5>HTML5</a> e outras especificações interessantes escolhidas a dedo. O manuscrito final foi publicado no formato em papel pela editora O&#8217;Reilly, sobre a marca da Google Press. <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">Compre a obra impressa</a> &mdash; entitulada como &#8220;HTML5: Up <i class=baa>&amp;</i> Running&#8221;. Esse trabalho permanece online sob os termos da licença <a rel=license href=http://creativecommons.org/licenses/by/3.0/>CC-BY-3.0</a>. Seu <a href=about.html>feedback</a> será sempre bem-vindo.
+    <!-- toc -->
+    <ol style="list-style: none;">
+      <li
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"
+          ><a href="introduction.html"
+            >Introdução: Cinco Coisas Que Você Deveria Saber Sobre
+            <abbr>HTML5</abbr></a
+          > </span
+        ><span class="number">0</span>
+      </li>
+      <li
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"
+          ><a href="past.html"
+            >A Tendenciosa História Da <abbr>HTML5</abbr></a
+          > </span
+        ><span class="number">1</span>
+      </li>
+      <li
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"
+          ><a href="detect.html"
+            >Detectando Funcionalidades Da <abbr>HTML5</abbr>: É Elementar, Meu
+            Caro Watson</a
+          > </span
+        ><span class="number">2</span>
+      </li>
+      <li
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"
+          ><a href="semantics.html">O Que Significa Tudo Isso?</a> </span
+        ><span class="number">3</span>
+      </li>
+      <li
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"
+          ><a href="canvas.html"
+            >Vamos Chamar De Superfície de Desenho</a
+          > </span
+        ><span class="number">4</span>
+      </li>
+      <li
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"
+          ><a href="video.html"
+            >Vídeo Em Um Flash (Sem Aquela Outra Coisa)</a
+          > </span
+        ><span class="number">5</span>
+      </li>
+      <li
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"
+          ><a href="geolocation.html"
+            >Você Está Aqui (Assim Como Todo Mundo Está)</a
+          > </span
+        ><span class="number">6</span>
+      </li>
+      <li
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"
+          ><a href="storage.html">Um Lugar Para Colocar Suas Coisas</a> </span
+        ><span class="number">7</span>
+      </li>
+      <li
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"
+          ><a href="offline.html">Vamos Tornar Isso Offline</a> </span
+        ><span class="number">8</span>
+      </li>
+      <li
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"><a href="forms.html">Uma Forma De Loucura</a> </span
+        ><span class="number">9</span>
+      </li>
+      <li
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"
+          ><a href="extensibility.html"
+            >“Distribuído”, “Extensível” e Outras Palavras Bonitas</a
+          > </span
+        ><span class="number">10</span>
+      </li>
+      <li
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"
+          ><a href="history.html"
+            >Manipulando Histórico Para Diversão <i>&amp;</i> Lucro</a
+          > </span
+        ><span class="number">11</span>
+      </li>
+      <li
+        class="app"
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"
+          ><a href="everything.html"
+            >O Único Quase-Alfabético Sem-Besteiras Guia Para Detectar Tudo</a
+          > </span
+        ><span class="number">A</span>
+      </li>
+      <li
+        class="app"
+        style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
+      >
+        <span class="title"
+          ><a href="peeks-pokes-and-pointers.html"
+            ><abbr>HTML5</abbr> Espiadas, Cutucadas e Apontadores</a
+          > </span
+        ><span class="number">B</span>
+      </li>
+    </ol>
+    <!-- /toc -->
 
-<p>Nota: Com o súbito abandono de Mark Pilgrim da internet, surgiu a iniciativa de dar continuidade ao seu trabalho; levando-o para ainda mais pessoas através da tradução para língua portuguesa. Nossa ideia é manter ativamente esse projeto; atualizando e refletindo o relevante e atual estado da HTML5, assim como tinha sido feito enquanto estava em posse de Mark. Para mais informações sobre como contribuir nesse processo de tradução ou reportar erros encontrados, <a href="https://github.com/webfatorial/diveintohtml5">acesse nosso Github</a>.
-
-<h3>Sumário</h3>
-
-<!-- toc -->
-<ol>
-<li><a href=introduction.html>Introdução: Cinco Coisas Que Você Deveria Saber Sobre <abbr>HTML5</abbr></a>
-<li><a href=past.html>A Tendenciosa História Da <abbr>HTML5</abbr></a>
-<li><a href=detect.html>Detectando Funcionalidades Da <abbr>HTML5</abbr>: É Elementar, Meu Caro Watson</a>
-<li><a href=semantics.html>O Que Significa Tudo Isso?</a>
-<li><a href=canvas.html>Vamos Chamar De Superfície de Desenho</a>
-<li><a href=video.html>Vídeo Em Um Flash (Sem Aquela Outra Coisa)</a>
-<li><a href=geolocation.html>Você Está Aqui (Assim Como Todo Mundo Está)</a>
-<li><a href=storage.html>Um Lugar Para Colocar Suas Coisas</a>
-<li><a href=offline.html>Vamos Tornar Isso Offline</a>
-<li><a href=forms.html>Uma Forma De Loucura</a>
-<li><a href=extensibility.html>&#8220;Distribuído&#8221;, &#8220;Extensível&#8221; e Outras Palavras Bonitas</a>
-<li><a href=history.html>Manipulando Histórico Para Diversão <i>&amp;</i> Lucro</a>
-<li class=app><a href=everything.html>O Único Quase-Alfabético Sem-Besteiras Guia Para Detectar Tudo</a>
-<li class=app><a href=peeks-pokes-and-pointers.html><abbr>HTML5</abbr> Espiadas, Cutucadas e Apontadores</a>
-</ol>
-<!-- /toc -->
-
-<p class=a>&#x2767;
-
-<p class=c>&#8220;Se você é bom em alguma coisa, nunca faça isso de graça.&#8221; <span class=u>&mdash;</span> <cite>O Coringa</cite><br>(mas isso não significa que você deva mantê-la para si mesmo)
-
-<p class=c>Copyright MMIX&ndash;MMXI <a href=about.html>Mark Pilgrim</a>
-
-<form action=https://www.google.com/cse><div><input type=hidden name=cx value=014437924039265546826:2nmoshc8y3y><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Pesquisar></div></form>
-<script src=j/jquery.js></script>
-<script src=j/dih5.js></script>
-<script>
-$(function() {
-  $("ol").css("list-style", "none");
-  $("li").each(function(i) {
-    var num = i;
-    if ($(this).hasClass("app")) {
-      num = String.fromCharCode(53+num);
-    }
-    $(this).wrapInner('<span class=title></span>').append('<span class=number>'+num+'</span>').css("background", "#fff url(i/dot.png) repeat-x 0 0.8em");
-  });
-});
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-6074143-4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-6074143-4');
-</script>
+    <p class="a">❧</p>
+    <p class="c">
+      “Se você é bom em alguma coisa, nunca faça isso de graça.”
+      <span class="u">—</span> <cite>O Coringa</cite><br />(mas isso não
+      significa que você deva mantê-la para si mesmo)
+    </p>
+    <p class="c">Copyright MMIX–MMXI <a href="about.html">Mark Pilgrim</a></p>
+    <form action="https://www.google.com/cse">
+      <div>
+        <input
+          type="hidden"
+          name="cx"
+          value="014437924039265546826:2nmoshc8y3y"
+        /><input type="hidden" name="ie" value="UTF-8" /><input
+          type="search"
+          name="q"
+          size="25"
+          placeholder="powered by Google™"
+        />&nbsp;<input type="submit" name="sa" value="Pesquisar" />
+      </div>
+    </form>
+    <script
+      type="text/javascript"
+      async=""
+      src="https://www.google-analytics.com/analytics.js"
+    ></script
+    ><script src="j/jquery.js"></script>
+    <script src="j/dih5.js"></script>
+    <script>
+      $(function() {
+        $("ol").css("list-style", "none");
+        $("li").each(function(i) {
+          var num = i;
+          if ($(this).hasClass("app")) {
+            num = String.fromCharCode(53 + num);
+          }
+          $(this)
+            .wrapInner("<span class=title></span>")
+            .append("<span class=number>" + num + "</span>")
+            .css("background", "#fff url(i/dot.png) repeat-x 0 0.8em");
+        });
+      });
+    </script>
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=UA-6074143-4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-6074143-4");
+    </script>
+  </body>
 </html>

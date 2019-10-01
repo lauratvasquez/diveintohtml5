@@ -1,100 +1,242 @@
 <!DOCTYPE html>
-<html lang=pt-br>
-<meta charset=utf-8>
-<title>Aplicações Web Offline - Dive Into HTML5</title>
-<!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
-<link rel=alternate type=application/atom+xml href=https://github.com/webfatorial/diveintohtml5/commits/gh-pages.atom>
-<link rel=alternate href=http://diveintohtml5.info/offline.html hreflang=en>
-<link rel=stylesheet href=screen.css>
-<style>
-body{counter-reset:h1 8}
-</style>
-<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
-<link rel=prefetch href=index.html>
+<html
+  lang="pt-br"
+  class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase no-indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"
+>
+  <head>
+    <meta charset="utf-8" />
+    <title>Aplicações Web Offline - Dive Into HTML5</title>
+    <!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      href="https://github.com/webfatorial/diveintohtml5/commits/gh-pages.atom"
+    />
+    <link
+      rel="alternate"
+      href="http://diveintohtml5.info/offline.html"
+      hreflang="en"
+    />
+    <link rel="stylesheet" href="screen.css" />
+    <style>
+      body {
+        counter-reset: h1 8;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      media="only screen and (max-device-width: 480px)"
+      href="mobile.css"
+    />
+    <link rel="prefetch" href="index.html" />
+  </head>
+  <body cz-shortcut-listen="true">
+    <a href="https://github.com/webfatorial/diveintohtml5"
+      ><img
+        style="position: absolute; top: 0; right: 0; border: 0;"
+        src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+        alt="Fork me on GitHub"
+    /></a>
 
-<a href="https://github.com/webfatorial/diveintohtml5"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <p>
+      Você está aqui: <a href="index.html">Home</a> <span class="u">‣</span>
+      <a href="table-of-contents.html#offline">Dive Into <abbr>HTML5</abbr></a>
+      <span class="u">‣</span>
+    </p>
+    <h1><br />Vamos Tornar Isso Offline</h1>
+    <p id="toc"><a href="javascript:showTOC()">exibir índice analítico</a></p>
+    <p class="a">❧</p>
+    <h2 id="divingin">Mergulhando</h2>
 
-<p>Você está aqui: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#offline>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
-<h1><br>Vamos Tornar Isso Offline</h1>
-<p id=toc>&nbsp;
-<p class=a>&#x2767;
-<h2 id=divingin>Mergulhando</h2>
+    <p class="f">
+      <img src="i/aoc-o.png" alt="O" width="110" height="108" />que são
+      aplicações web offline? Em um primeiro momento, parece uma contradição de
+      termos. Páginas da web são coisas que você faz download e renderiza.
+      Download implica conexão com a rede. Como você pode fazer download quando
+      você está offline? É claro, você não pode. Mas você <em>pode</em> fazer
+      download quando você está online. E é assim que as aplicacões offline da
+      <abbr>HTML5</abbr> funcionam.
+    </p>
+    <p>
+      De forma simples, uma aplicacão web offline é uma lista de
+      <abbr>URL</abbr>s — <abbr>HTML</abbr>, <abbr>CSS</abbr>, JavaScript,
+      imagens, ou qualquer tipo de recurso. A página inicial de uma aplicação
+      web offline aponta para essa lista, chamado de arquivo manifesto, que é
+      apenas um arquivo texto localizado em qualquer lugar no servidor web. Um
+      navegador web que implementa aplicações offline em <abbr>HTML5</abbr> irá
+      ler a lista de <abbr>URL</abbr>s do arquivo manifesto, fazer download dos
+      recursos, realizar o cache deles localmente, e automaticamente manter os
+      arquivos locais atualizados à medida que são alterados. Quando chegar a
+      hora em que você tentar acessar as aplicações web sem uma conexão de rede,
+      seu navegador web irá automaticamente apontar para as cópias locais.
+    </p>
+    <p>
+      A partir disso, a maioria do trabalho está com você, desenvolvedor web.
+      Existe uma indicação no <abbr>DOM</abbr> que irá dizer se você está online
+      ou offline. Existem eventos que são disparados quando seu status offline
+      muda (em um minuto você está offline e no próximo minuto está online, ou
+      vice-versa). Mas é basicamento isso. Se a sua aplicação cria dados ou
+      salvo estados, está com você a missão de
+      <a href="storage.html">armazenar dados localmente</a> enquanto está
+      offline e sincronizar isso com o servidor remoto uma vez estando online
+      novamente. Em outras palavras, <abbr>HTML5</abbr> pode levar suas
+      aplicações web offline. O que você faz quando chegar lá é com você.
+    </p>
+    <table class="bc">
+      <caption>
+        Suporte offline
+      </caption>
+      <thead>
+        <tr>
+          <th title="Internet Explorer">IE</th>
+          <th title="Mozilla Firefox">Firefox</th>
+          <th title="Apple Safari">Safari</th>
+          <th title="Google Chrome">Chrome</th>
+          <th>Opera</th>
+          <th>iPhone</th>
+          <th>Android</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>·</td>
+          <td>3.5+</td>
+          <td>4.0+</td>
+          <td>5.0+</td>
+          <td>10.6+</td>
+          <td>2.1+</td>
+          <td>2.0+</td>
+        </tr>
+      </tbody>
+    </table>
 
-<p class=f><img src=i/aoc-o.png alt=O width=110 height=108>que são aplicações web offline? Em um primeiro momento, parece uma contradição de termos. Páginas da web são coisas que você faz download e renderiza. Download implica conexão com a rede. Como você pode fazer download quando você está offline? É claro, você não pode. Mas você <em>pode</em> fazer download quando você está online. E é assim que as aplicacões offline da <abbr>HTML5</abbr> funcionam.
+    <p class="a">❧</p>
+    <h2 id="manifest">O Manifesto Cache</h2>
 
-<p>De forma simples, uma aplicacão web offline é uma lista de <abbr>URL</abbr>s &mdash; <abbr>HTML</abbr>, <abbr>CSS</abbr>, JavaScript, imagens, ou qualquer tipo de recurso. A página inicial de uma aplicação web offline aponta para essa lista, chamado de arquivo manifesto, que é apenas um arquivo texto localizado em qualquer lugar no servidor web. Um navegador web que implementa aplicações offline em <abbr>HTML5</abbr> irá ler a lista de <abbr>URL</abbr>s do arquivo manifesto, fazer download dos recursos, realizar o cache deles localmente, e automaticamente manter os arquivos locais atualizados à medida que são alterados. Quando chegar a hora em que você tentar acessar as aplicações web sem uma conexão de rede, seu navegador web irá automaticamente apontar para as cópias locais.
-
-<p>A partir disso, a maioria do trabalho está com você, desenvolvedor web. Existe uma indicação no <abbr>DOM</abbr> que irá dizer se você está online ou offline. Existem eventos que são disparados quando seu status offline muda (em um minuto você está offline e no próximo minuto está online, ou vice-versa). Mas é basicamento isso. Se a sua aplicação cria dados ou salvo estados, está com você a missão de <a href=storage.html>armazenar dados localmente</a> enquanto está offline e sincronizar isso com o servidor remoto uma vez estando online novamente. Em outras palavras, <abbr>HTML5</abbr> pode levar suas aplicações web offline. O que você faz quando chegar lá é com você.
-
-<table class=bc>
-<caption>Suporte offline</caption>
-<thead>
-<tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
-<tbody>
-<tr><td>&middot;<td>3.5+<td>4.0+<td>5.0+<td>10.6+<td>2.1+<td>2.0+
-</table>
-
-<p class=a>&#x2767;
-
-<h2 id=manifest>O Manifesto Cache</h2>
-
-<p>Uma aplicação web offline utiliza um arquivo de manifesto cache. O que é um arquivo manifesto? É uma lista de todos os recursos que a sua aplicação web irá precisar acessar quando estiver desconectada de uma rede. Afim de iniciar o processo de download e cache desses recursos, você irá precisar apontar para o arquivo manifesto, utilizando o atributo <code>manifest</code> no seu elemento <code>&lt;html></code>.
-
-<pre><code>&lt;!DOCTYPE HTML>
-&lt;html <mark>manifest="/cache.manifest"</mark>>
-&lt;body>
+    <p>
+      Uma aplicação web offline utiliza um arquivo de manifesto cache. O que é
+      um arquivo manifesto? É uma lista de todos os recursos que a sua aplicação
+      web irá precisar acessar quando estiver desconectada de uma rede. Afim de
+      iniciar o processo de download e cache desses recursos, você irá precisar
+      apontar para o arquivo manifesto, utilizando o atributo
+      <code>manifest</code> no seu elemento <code>&lt;html&gt;</code>.
+    </p>
+    <pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html <mark>manifest="/cache.manifest"</mark>&gt;
+&lt;body&gt;
 ...
-&lt;/body>
-&lt;/html></code></pre>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
-<p>Seu arquivo de manifesto cache pode estar localizado em qualquer lugar do seu servidor web, mas precisa estar servido sob o tipo de conteúdo <code>text/cache-manifest</code>. Se você está rodando um servidor web baseado no Apache, você provavelmente precisa adicionar uma <a href=http://httpd.apache.org/docs/2.2/mod/mod_mime.html#addtype>diretiva <code>AddType</code></a> no seu arquivo <code>.htaccess</code> na raíz do seu diretório web:
+    <p>
+      Seu arquivo de manifesto cache pode estar localizado em qualquer lugar do
+      seu servidor web, mas precisa estar servido sob o tipo de conteúdo
+      <code>text/cache-manifest</code>. Se você está rodando um servidor web
+      baseado no Apache, você provavelmente precisa adicionar uma
+      <a href="http://httpd.apache.org/docs/2.2/mod/mod_mime.html#addtype"
+        >diretiva <code>AddType</code></a
+      >
+      no seu arquivo <code>.htaccess</code> na raíz do seu diretório web:
+    </p>
+    <pre><code>AddType text/cache-manifest .manifest</code></pre>
 
-<pre><code>AddType text/cache-manifest .manifest</code></pre>
+    <p>
+      Depois certifique-se que o nome do seu arquivo de manifesto cache termina
+      com <code>.manifest</code>. Se você usa um servidor web diferente ou uma
+      configuração diferente do Apache, consulte a documentação do seu servidor
+      em controle de cabeçalho <code>Content-Type</code>.
+    </p>
+    <div class="pf clear">
+      <h4>Pergunte ao Professor Marcação</h4>
+      <div class="inner">
+        <blockquote class="note">
+          <p>
+            <span>☞</span>P: Minha aplicação web abrange mais de uma página.
+            Preciso de um atributo <code>manifest</code> em cada página, ou
+            posso colocar apenas na home page?
+          </p>
+          <p>
+            R: Cada página da sua aplicação web precisa de um atributo
+            <code>manifest</code> que aponta para o manifesto cache para toda
+            aplicação.
+          </p>
+        </blockquote>
+      </div>
+    </div>
 
-<p>Depois certifique-se que o nome do seu arquivo de manifesto cache termina com <code>.manifest</code>. Se você usa um servidor web diferente ou uma configuração diferente do Apache, consulte a documentação do seu servidor em controle de cabeçalho <code>Content-Type</code>.
+    <p>
+      OK, então cada uma das suas páginas <abbr>HTML</abbr> apontam para seu
+      arquivo de manifesto cache, e seu arquivo de manifesto cache sendo
+      servidor com o devido cabeçalho <code>Content-Type</code>. Mas o que
+      acontece <em>dentro</em> do arquivo manifesto? É aqui onde as coisas
+      começam a ficar interessante.
+    </p>
+    <p>A primeira linha de todo arquivo de manifesto cache é assim:</p>
+    <pre><code>CACHE MANIFEST</code></pre>
 
-<div class="pf clear">
-<h4>Pergunte ao Professor Marcação</h4>
-<div class=inner>
-<blockquote class=note>
-<p><span>&#x261E;</span>P: Minha aplicação web abrange mais de uma página. Preciso de um atributo <code>manifest</code> em cada página, ou posso colocar apenas na home page?
-<p>R: Cada página da sua aplicação web precisa de um atributo <code>manifest</code> que aponta para o manifesto cache para toda aplicação.
-</blockquote>
-</div>
-</div>
-
-<p>OK, então cada uma das suas páginas <abbr>HTML</abbr> apontam para seu arquivo de manifesto cache, e seu arquivo de manifesto cache sendo servidor com o devido cabeçalho <code>Content-Type</code>. Mas o que acontece <em>dentro</em> do arquivo manifesto? É aqui onde as coisas começam a ficar interessante.
-
-<p>A primeira linha de todo arquivo de manifesto cache é assim:
-
-<pre><code>CACHE MANIFEST</code></pre>
-
-<p>Depois disso, todos os arquivos manifesto são divididos em três partes: a seção &#8220;explícita&#8221;, a seção &#8220;fallback&#8221;, e a seção &#8220;lista branca online&#8221;. Cada seção tem um header, na sua própria linha. Se o arquivo manifesto não tiver nenhum desses cabeçalhos de seção, todos os recursos listados estão implicitamente na seção &#8220;explícita&#8221;. Tente não se debruçar sobre a terminologia, se não sua cabeça irá explodir.
-
-<p>Aqui está um arquivo manifesto válido. Ele lista três recursos: um arquivo <abbr>CSS</abbr>, um arquivo JavaScript, e uma imagem <abbr>JPEG</abbr>.
-
-<pre><code>CACHE MANIFEST
+    <p>
+      Depois disso, todos os arquivos manifesto são divididos em três partes: a
+      seção “explícita”, a seção “fallback”, e a seção “lista branca online”.
+      Cada seção tem um header, na sua própria linha. Se o arquivo manifesto não
+      tiver nenhum desses cabeçalhos de seção, todos os recursos listados estão
+      implicitamente na seção “explícita”. Tente não se debruçar sobre a
+      terminologia, se não sua cabeça irá explodir.
+    </p>
+    <p>
+      Aqui está um arquivo manifesto válido. Ele lista três recursos: um arquivo
+      <abbr>CSS</abbr>, um arquivo JavaScript, e uma imagem <abbr>JPEG</abbr>.
+    </p>
+    <pre><code>CACHE MANIFEST
 /clock.css
 /clock.js
 /clock-face.jpg</code></pre>
 
-<p>Esse arquivo de manifesto cache não possui cabeçalhos de seção, então todos os recursos listados estão na seção &#8220;explícita&#8221; por padrão. Recursos na seção &#8220;explícita&#8221; serão feitos download e cache localmente, e serão usados no lugar de seus respectivos semelhantes sempre que você estiver desconectado de uma rede. Assim que for carregado esse arquivo de manifesto cache, seu navegador irá realizar o download de <code>clock.css</code>, <code>clock.js</code>, e <code>clock-face.jpg</code> do diretório raíz do seu servidor web. Então você pode desplugar seu cabo de rede e atualizar a página, e todos aqueles recursos estarão disponíveis offline.
+    <p>
+      Esse arquivo de manifesto cache não possui cabeçalhos de seção, então
+      todos os recursos listados estão na seção “explícita” por padrão. Recursos
+      na seção “explícita” serão feitos download e cache localmente, e serão
+      usados no lugar de seus respectivos semelhantes sempre que você estiver
+      desconectado de uma rede. Assim que for carregado esse arquivo de
+      manifesto cache, seu navegador irá realizar o download de
+      <code>clock.css</code>, <code>clock.js</code>, e
+      <code>clock-face.jpg</code> do diretório raíz do seu servidor web. Então
+      você pode desplugar seu cabo de rede e atualizar a página, e todos aqueles
+      recursos estarão disponíveis offline.
+    </p>
+    <div class="pf clear">
+      <h4>Pergunte ao Professor Marcação</h4>
+      <div class="inner">
+        <blockquote class="note">
+          <p>
+            <span>☞</span>P: Preciso listar minhas páginas <abbr>HTML</abbr> no
+            meu manifesto cache?<br />
+            R: Sim e não. Se a sua aplicação web inteira está contida em uma
+            única página, apenas certifique-se que a página aponta para o
+            manifesto cache usando o atributo <code>manifest</code>. Quando você
+            navega em uma página <abbr>HTML</abbr> com o atributo
+            <code>manifest</code>, a página em si assume ser parte da aplicação
+            web, então você não precisa listá-la no arquivo manifesto.
+            Entretanto, se a sua aplicação web agrega múltiplas páginas, você
+            deve listar todas as páginas <abbr>HTML</abbr> no arquivo manifesto,
+            caso contrário o navegador não saberá que existem outras páginas
+            <abbr>HTML</abbr> que precisam fazer download e cache.
+          </p>
+        </blockquote>
+      </div>
+    </div>
 
-<div class="pf clear">
-<h4>Pergunte ao Professor Marcação</h4>
-<div class=inner>
-<blockquote class=note>
-<p><span>&#x261E;</span>P: Preciso listar minhas páginas <abbr>HTML</abbr> no meu manifesto cache?<br>
-R: Sim e não. Se a sua aplicação web inteira está contida em uma única página, apenas certifique-se que a página aponta para o manifesto cache usando o atributo <code>manifest</code>. Quando você navega em uma página <abbr>HTML</abbr> com o atributo <code>manifest</code>, a página em si assume ser parte da aplicação web, então você não precisa listá-la no arquivo manifesto. Entretanto, se a sua aplicação web agrega múltiplas páginas, você deve listar todas as páginas <abbr>HTML</abbr> no arquivo manifesto, caso contrário o navegador não saberá que existem outras páginas <abbr>HTML</abbr> que precisam fazer download e cache.
-</blockquote>
-</div>
-</div>
+    <h3 id="network">Seções de Rede</h3>
 
-<h3 id=network>Seções de Rede</h3>
-
-<p>Aqui está um exemplo um pouquinho mais complicado. Suponha que você queira que sua aplicação relógio rastreie os visitantes, usando um script <abbr>tracking.cgi</abbr> que é carregado dinâmicamente por um atributo <code>&lt;img src></code>. Realizando o cache desse recurso irá acabar com o propósito desse rastreamento, então esse recurso nunca deve realizar cache e nunca deve estar disponível offline. Aqui está o que você deve fazer:
-
-<pre><code>CACHE MANIFEST
+    <p>
+      Aqui está um exemplo um pouquinho mais complicado. Suponha que você queira
+      que sua aplicação relógio rastreie os visitantes, usando um script
+      <abbr>tracking.cgi</abbr> que é carregado dinâmicamente por um atributo
+      <code>&lt;img src&gt;</code>. Realizando o cache desse recurso irá acabar
+      com o propósito desse rastreamento, então esse recurso nunca deve realizar
+      cache e nunca deve estar disponível offline. Aqui está o que você deve
+      fazer:
+    </p>
+    <pre><code>CACHE MANIFEST
 <mark>NETWORK:
 /tracking.cgi</mark>
 CACHE:
@@ -102,180 +244,608 @@ CACHE:
 /clock.js
 /clock-face.jpg</code></pre>
 
-<p>Esse arquivo de manifesto cache inclui cabeçalhos de seção. A linha marcada com <code>NETWORK:</code> é o começo dessa seção &#8220;lista branca online&#8221;. Recursos nessa seção nunca sofrerão cache e não estarão disponíveis offline. (Tentar carregá-los enquanto estiver offline irá resultar em um erro.) A linha marcada com <code>CACHE:</code> é o começo da seção &#8220;explícita&#8221;. O resto do arquivo de manifesto cache é o mesmo do exemplo anterior. Cada um dos três recursos listados estará em cache e disponível offline.
+    <p>
+      Esse arquivo de manifesto cache inclui cabeçalhos de seção. A linha
+      marcada com <code>NETWORK:</code> é o começo dessa seção “lista branca
+      online”. Recursos nessa seção nunca sofrerão cache e não estarão
+      disponíveis offline. (Tentar carregá-los enquanto estiver offline irá
+      resultar em um erro.) A linha marcada com <code>CACHE:</code> é o começo
+      da seção “explícita”. O resto do arquivo de manifesto cache é o mesmo do
+      exemplo anterior. Cada um dos três recursos listados estará em cache e
+      disponível offline.
+    </p>
+    <h3 id="fallback">Seções de Fallback</h3>
 
-<h3 id=fallback>Seções de Fallback</h3>
-
-<p>Esse é mais um tipo de seção em um arquivo de manifesto cache: a seção fallback. Na seção fallback, você pode definir substituições para recursos online que, por uma razão qualquer, não devem realizar cache ou não realizaram cache com sucesso. A especificação da <abbr>HTML5</abbr> oferece esse exemplo usando a seção fallback:
-
-<pre><code>CACHE MANIFEST
+    <p>
+      Esse é mais um tipo de seção em um arquivo de manifesto cache: a seção
+      fallback. Na seção fallback, você pode definir substituições para recursos
+      online que, por uma razão qualquer, não devem realizar cache ou não
+      realizaram cache com sucesso. A especificação da
+      <abbr>HTML5</abbr> oferece esse exemplo usando a seção fallback:
+    </p>
+    <pre><code>CACHE MANIFEST
 FALLBACK:
 / /offline.html
 NETWORK:
 *</code></pre>
 
-<p>O que isso faz? Primeiro, considere um site que contém milhões de páginas, como no <a href=http://pt.wikipedia.org/wiki/Main_Page>Wikipedia</a>. Você não poderia fazer download do site inteiro, nem você iria querer. Mas suponha que você consiga deixar <em>parte</em> disso disponível offline. Como você iria decidir quais página fazer cache? Que tal isso: cada página que você já tenha visto em uma hipotética Wikipedia offline seriam feitos download e cache. Isso incluiria cada entrada da enciclopédia que você já visitou, cada página de discussão (onde você encontra discussões improvisadas sobre uma entrada particular da enciclopédia), e cada página de edição (onde você consegue, de fato, realizar alterações sobre uma entrada particular).
+    <p>
+      O que isso faz? Primeiro, considere um site que contém milhões de páginas,
+      como no <a href="http://pt.wikipedia.org/wiki/Main_Page">Wikipedia</a>.
+      Você não poderia fazer download do site inteiro, nem você iria querer. Mas
+      suponha que você consiga deixar <em>parte</em> disso disponível offline.
+      Como você iria decidir quais página fazer cache? Que tal isso: cada página
+      que você já tenha visto em uma hipotética Wikipedia offline seriam feitos
+      download e cache. Isso incluiria cada entrada da enciclopédia que você já
+      visitou, cada página de discussão (onde você encontra discussões
+      improvisadas sobre uma entrada particular da enciclopédia), e cada página
+      de edição (onde você consegue, de fato, realizar alterações sobre uma
+      entrada particular).
+    </p>
+    <p>
+      É isso que o manifesto cache faz. Suponha que cada página
+      <abbr>HTML</abbr> (entrada, discussão, edição, histórico) no Wikipedia
+      apontasse para esse arquivo de manifesto cache. Quando você visita
+      qualquer página que aponta para o manifesto cache, seu navegador diz “ei,
+      essa página é parte de uma aplicação web offline, essa é alguma que eu
+      conheço?” Se o seu navegador nunca fez download desse arquivo de manifesto
+      cache, ele irá definir um novo “appcache” offline; (nome curto para
+      “aplicação cache”), fazer download de todos os recursos listados no
+      manifesto cache, e depois adicionar a página corrente para o appcache. Se
+      o seu navegador conhece o manifesto cache, irá simplesmente adicionar a
+      página corrente para o appcache existente. Dessa forma, a página que você
+      acabou de visitar acaba no appcache. Isso é importante. Significa que você
+      pode ter uma aplicação web offline que, de forma “preguiçosa”, adiciona
+      páginas à medida que as visita. Você não precisa listar cada uma das suas
+      páginas <abbr>HTML</abbr> no seu manifesto cache.
+    </p>
+    <p>
+      Agora veja a seção fallback. A seção fallback nesse manifesto cache tem
+      apenas uma única linha. A primeira parte da linha (antes do espaço) não é
+      uma <abbr>URL</abbr>. É na verdade um padrão de <abbr>URL</abbr>. O único
+      caractere (<code>/</code>) irá definir qualquer página do seu site, não
+      apenas a página de entrada. Quando você tentar visitar a página enquanto
+      estiver offline, seu navegador irá procurar por ele no appcache. Se o seu
+      navegador encontra a página no appcache (porque você a visitou enquanto
+      esteve online, e a página foi adicionada de forma implícita no appcache
+      naquela hora), então seu navegador irá exibir uma cópia da página em
+      cache. Se o seu navegador não encontrar a página no appcache, ao invés de
+      exibir uma mensagem de erro, irá exibir a página
+      <code>/offline.html</code>, como especificado na segunda parte daquela
+      linha na seção fallback.
+    </p>
+    <p>
+      Finalmente, vamos examinar a seção de rede. A seção de rede nesse arquivo
+      de manifesto cache também tem apenas uma única linha, a linha que contém
+      apenas um único caractere (<code>*</code>). Esse caractere tem um
+      significado especial na seção de rede. É chamado de “curinga da lista
+      branca online.” É um modo elegante de dizer que qualquer coisa que não
+      esteja no appcache pode ainda realizar download do endereço web original,
+      desde que você tenha uma conexão de internet. Isso é importante para uma
+      aplicação web offline sem data de volta marcada. Significa que, enquanto
+      você estiver navegando <em>online</em> nessa hipotética Wikipedia offline,
+      seu navegador irá buscar imagens, vídeos e outros recursos embutidos
+      normalmente, mesmo se estiverem em um domínio diferente. (Isso é comum em
+      websites grandes, mesmo se eles não fizerem parte de aplicações web
+      offline. Páginas <abbr>HTML</abbr> são geradas e servidas localmente,
+      enquanto que imagens e vídeos são servidos a partir de um
+      <a href="http://en.wikipedia.org/wiki/Content_delivery_network"
+        ><abbr title="content delivery network">CDN</abbr></a
+      >
+      em outro domínio.) Sem esse curinga, nossa hipotética Wikipedia offline
+      iria se comportar estranhamente enquanto você estivesse online —
+      específicamente, não iria carregar nenhuma imagem ou vídeo hospedados
+      externamente!
+    </p>
+    <p>
+      Esse exemplo está completo? Não. A Wikipedia é mais do que arquivos
+      <abbr>HTML</abbr>. Ela comumente usa <abbr>CSS</abbr>, JavaScript, e
+      imagens em cada página. Cada um desses recursos precisariam ser listados
+      explicitamente na seção <code>CACHE:</code> do arquivo manifesto, para que
+      cada página exibisse e se comportasse propriamente offline. Mas o ponto da
+      seção fallback é que você pode ter uma aplicação web offline sem data de
+      volta marcada que extende além dos recursos que você listou explicitamente
+      no arquivo manifesto.
+    </p>
+    <p class="a">❧</p>
+    <h2 id="events">O Fluxo de Eventos</h2>
 
-<p>É isso que o manifesto cache faz. Suponha que cada página <abbr>HTML</abbr> (entrada, discussão, edição, histórico) no Wikipedia apontasse para esse arquivo de manifesto cache. Quando você visita qualquer página que aponta para o manifesto cache, seu navegador diz &#8220;ei, essa página é parte de uma aplicação web offline, essa é alguma que eu conheço?&#8221; Se o seu navegador nunca fez download desse arquivo de manifesto cache, ele irá definir um novo &#8220;appcache&#8221 offline; (nome curto para &#8220;aplicação cache&#8221;), fazer download de todos os recursos listados no manifesto cache, e depois adicionar a página corrente para o appcache. Se o seu navegador conhece o manifesto cache, irá simplesmente adicionar a página corrente para o appcache existente. Dessa forma, a página que você acabou de visitar acaba no appcache. Isso é importante. Significa que você pode ter uma aplicação web offline que, de forma &#8220;preguiçosa&#8221;, adiciona páginas à medida que as visita. Você não precisa listar cada uma das suas páginas <abbr>HTML</abbr> no seu manifesto cache.
+    <p>
+      Até agora, falei sobre aplicações web offline, sobre cache manifest e
+      vagamente sobre cache de aplicações offline (“appcache”), com termos quase
+      mágicos. Coisas são carregadas, navegadores fazem decisões e tudo
+      simplesmente funciona. Você sabe melhor que isso, certo? Quero dizer,
+      desse desenvolvimento web que estamos falando. Nada sempre “apenas
+      funciona”.
+    </p>
+    <p>
+      Primeiro, vamos falar sobre o fluxo dos eventos. Especificamente, eventos
+      <abbr>DOM</abbr>. Quando seu navegador acessa uma página que aponta para
+      um arquivo de cache manifest, ele aciona uma série de eventos no objeto
+      <code>window.applicationCache</code>. Eu sei que parece complicado mas,
+      confie em mim, essa é a versão mais simples que eu pude pensar e que não
+      deixa de fora informações importantes.
+    </p>
 
-<p>Agora veja a seção fallback. A seção fallback nesse manifesto cache tem apenas uma única linha. A primeira parte da linha (antes do espaço) não é uma <abbr>URL</abbr>. É na verdade um padrão de <abbr>URL</abbr>. O único caractere (<code>/</code>) irá definir qualquer página do seu site, não apenas a página de entrada. Quando você tentar visitar a página enquanto estiver offline, seu navegador irá procurar por ele no appcache. Se o seu navegador encontra a página no appcache (porque você a visitou enquanto esteve online, e a página foi adicionada de forma implícita no appcache naquela hora), então seu navegador irá exibir uma cópia da página em cache. Se o seu navegador não encontrar a página no appcache, ao invés de exibir uma mensagem de erro, irá exibir a página <code>/offline.html</code>, como especificado na segunda parte daquela linha na seção fallback.
+    <ol>
+      <li>
+        Assim que o navegador percebe o atributo <code>manifest</code> no
+        elemento <code>&lt;html&gt;</code>, ele dispara um evento
+        <strong><code>checking</code></strong
+        >. (Todos os eventos listados aqui são acionados pelo objeto
+        <code>window.applicationCache</code>). O evento <code>checking</code> é
+        sempre disparado, independente de você ter visitado esta página ou outra
+        página que aponte para o mesmo arquivo de cache manifest.
+      </li>
+      <li>
+        Se seu navegador nunca viu este cache manifest antes...
+        <ul>
+          <li>
+            Ele irá acionar o evento <strong><code>downloading</code></strong
+            >, e então iniciar o download dos arquivos listados no cache
+            manifest.
+          </li>
+          <li>
+            Enquanto ele está baixando, seu navegador irá disparar
+            periodicamente o evento <strong><code>progress</code></strong
+            >, que contém informações de quantos arquivos já foram baixados e
+            quantos arquivos ainda estão na fila download.
+          </li>
+          <li>
+            Depois que todos os arquivos listados no cache manifest forem
+            baixados com sucesso, o navegador dispara um evento final, o
+            <strong><code>cached</code></strong
+            >. Este é seu sinal de que a aplicação web offline está
+            completamente cacheada e pronta para ser usada sem conexão. Pronto,
+            você terminou.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Por outro lado, se você visitou esta página anteriormente ou alguma
+        outra página que aponte para o mesmo arquivo de cache manifest, então
+        seu navegador já sabe sobre esse cache manifest. Ele pode já ter alguns
+        arquivos no appcache. Ele pode até conter toda a aplicação web offline
+        funcionando no appcache. Sendo assim, a questão é: o cache manifest
+        mudou desde a última vez que seu navegador o acessou?
+        <ul>
+          <li>
+            Se a resposta for não, o cache manifest não mudou, seu navegador irá
+            imediatamente disparar o evento
+            <strong><code>noupdate</code></strong
+            >. E é isso, está tudo pronto.
+          </li>
+          <li>
+            Se a resposta for sim, o cache manifest <em>mudou</em>, seu
+            navegador irá disparar o evento
+            <strong><code>downloading</code></strong> e começar a baixar todos
+            os arquivos listados no cache manifest novamente.
+          </li>
+          <li>
+            Enquanto os arquivos são baixados, seu navegador irá disparar
+            periodicamente o evento <strong><code>progress</code></strong
+            >, que contém informações como quantos arquivos foram baixados até
+            agora e quantos arquivos ainda estão na fila para serem baixados.
+          </li>
+          <li>
+            Depois que todos os arquivos listados no cache manifest forem
+            baixados novamente com sucesso, o navegador irá acionar um evento
+            final chamado <strong><code>updateready</code></strong
+            >. Este é o sinal de que uma nova versão de sua aplicação web
+            offline está totalmente cacheada e pronta para ser usada sem
+            conexão. <em>A nova versão ainda não está sendo usada.</em> Para
+            fazer uma “troca rápida” para a nova versão sem forçar o usuário a
+            atualizar a página atual, você pode chamar manualmente a função
+            <code>window.applicationCache.swapCache()</code>.
+          </li>
+        </ul>
+      </li>
+    </ol>
 
-<p>Finalmente, vamos examinar a seção de rede. A seção de rede nesse arquivo de manifesto cache também tem apenas uma única linha, a linha que contém apenas um único caractere (<code>*</code>). Esse caractere tem um significado especial na seção de rede. É chamado de &#8220;curinga da lista branca online.&#8221; É um modo elegante de dizer que qualquer coisa que não esteja no appcache pode ainda realizar download do endereço web original, desde que você tenha uma conexão de internet. Isso é importante para uma aplicação web offline sem data de volta marcada. Significa que, enquanto você estiver navegando <em>online</em> nessa hipotética Wikipedia offline, seu navegador irá buscar imagens, vídeos e outros recursos embutidos normalmente, mesmo se estiverem em um domínio diferente. (Isso é comum em websites grandes, mesmo se eles não fizerem parte de aplicações web offline. Páginas <abbr>HTML</abbr> são geradas e servidas localmente, enquanto que imagens e vídeos são servidos a partir de um <a href=http://en.wikipedia.org/wiki/Content_delivery_network><abbr title="content delivery network">CDN</abbr></a> em outro domínio.) Sem esse curinga, nossa hipotética Wikipedia offline iria se comportar estranhamente enquanto você estivesse online &mdash; específicamente, não iria carregar nenhuma imagem ou vídeo hospedados externamente!
+    <p>
+      Se, em qualquer ponto deste processo, alguma coisa terrível acontecer de
+      errado, seu navegador irá acionar o evento
+      <strong><code>error</code></strong> e parar. Aqui está uma lista resumida
+      do que pode ter dado errado:
+    </p>
+    <ul>
+      <li>
+        O cache manifest retornou um erro 404 de <abbr>HTTP</abbr> (Page Not
+        Found) ou 410 (Permanently Gone).
+      </li>
+      <li>
+        O cache manifest foi encontrado e não foi alterado, mas a página
+        <abbr>HTTP</abbr> que aponta para o arquivo cache manifest não foi
+        carregada corretamente.
+      </li>
+      <li>
+        O cache manifest mudou enquanto o carregamento estava em andamento.
+      </li>
+      <li>
+        O cache manifest foi encontrado e alterado, mas o navegador falhou em
+        baixar um dos arquivos listados no arquivo de cache manifest.
+      </li>
+    </ul>
 
-<p>Esse exemplo está completo? Não. A Wikipedia é mais do que arquivos <abbr>HTML</abbr>. Ela comumente usa <abbr>CSS</abbr>, JavaScript, e imagens em cada página. Cada um desses recursos precisariam ser listados explicitamente na seção <code>CACHE:</code> do arquivo manifesto, para que cada página exibisse e se comportasse propriamente offline. Mas o ponto da seção fallback é que você pode ter uma aplicação web offline sem data de volta marcada que extende além dos recursos que você listou explicitamente no arquivo manifesto.
+    <h2 id="debugging">
+      A fina arte de depurar, também conhecida como “Me mate! Me mate agora!”
+    </h2>
 
-<p class=a>&#x2767;
+    <p>
+      Eu quero falar sobre dois pontos importantes aqui. O primeiro é algo que
+      você acabou de ler, mas aposto que não absorveu muito bem, então, lá vai
+      novamente: mesmo que um único arquivo listado em seu arquivo de cache
+      manifest falhar na hora de ser carregado corretamente, todo o processo de
+      cache de sua aplicação web offline irá falhar. Seu navegador irá disparar
+      o evento <code>error</code>, mas não existe nada indicando qual é o
+      problema. Isso pode tornar a depuração de aplicações web offline ainda
+      mais frustrante do que normalmente é.
+    </p>
+    <p>
+      O segundo ponto importante é algo que, tecnicamente falando, não é um
+      erro, mas vai parecer um problema sério do navegador até que você descubra
+      o que está acontecendo. Tem relação exatamente com o modo que seu
+      navegador checa como um arquivo cache manifest foi alterado. Este é um
+      processo de três fases. É chato mas muito importante, então preste
+      atenção.
+    </p>
+    <ol>
+      <li>
+        Via semântica normal de <abbr>HTTP</abbr>, seu navegador vai checar se o
+        cache manifest expirou. Bem como qualquer outro arquivo sendo servido em
+        <abbr>HTTP</abbr>, seu servidor vai incluir meta-informações, como faz
+        tipicamente, sobre o arquivo nos cabeçalhos de resposta
+        <abbr>HTTP</abbr>. Alguns desses cabeçalhos <abbr>HTTP</abbr> (<code
+          >Expires</code
+        >
+        e <code>Cache-Control</code>) dizem para seu navegador como é permitido
+        cachear arquivos sem ao menos ter que perguntar o que mudou pro
+        servidor. Este tipo de cache não tem relação nenhuma com aplicações web
+        offline. Isso acontece para praticamente todas as páginas
+        <abbr>HTML</abbr>, folhas de estilo, script, imagens ou qualquer outro
+        arquivo na web.
+      </li>
+      <li>
+        Se o cache manifest expirou (de acordo com seu cabeçalho
+        <abbr>HTTP</abbr>), então o navegador irá pedir ao servidor qual a
+        versão mais nova, e se existir uma, o navegador irá baixar a mesma. Para
+        isso, seu navegador aponta uma requisição <abbr>HTTP</abbr> que inclui a
+        data da última modificação do cache manifest, a qual seu servidor inclui
+        na resposta do cabeçalho <abbr>HTTP</abbr> da última vez que seu
+        navegador baixou o arquivo de cache manifest. Se o servidor determinar
+        que o arquivo de cache manifest não mudou desde tal data, ele vai
+        retornar, simplesmente, um status <abbr>304 (Not Modified)</abbr>.
+        Novamente, nada disso é específico para aplicações web offline. Isso
+        acontece, essencialmente, para todos os tipos de arquivos na web.
+      </li>
+      <li>
+        Se o servidor acha que o arquivo de cache manifest mudou desde tal data,
+        ele vai retornar um código de status <abbr>HTTP</abbr>
+        <code>200 (OK)</code>, seguido pelo conteúdo do novo arquivo, junto de
+        um novo cabeçalho <code>Cache-Control</code> e uma nova data de última
+        modificação do arquivo, então o passo 1 e 2 irão funcionar devidamente
+        da próxima vez. (<abbr>HTTP</abbr> é legal; servidores web estão sempre
+        preparados para o futuro. Se seu servidor web definitivamente deve te
+        enviar um arquivo, ele fará tudo que pode para ter certeza que ele não
+        lhe enviará duas vezes, atoa.) Uma vez baixado o novo arquivo de cache
+        manifest, seu navegador irá verificar o conteúdo do seu arquivo baixado
+        com o arquivo baixado da última vez. Se o conteúdo dos arquivos de cache
+        manifest forem iguais, seu navegador não irá fazer o download novamente
+        de qualquer um dos arquivos nele listados.
+      </li>
+    </ol>
 
-<h2 id=events>O Fluxo de Eventos</h2>
-
-<p>Até agora, falei sobre aplicações web offline, sobre cache manifest e vagamente sobre cache de aplicações offline (&#8220;appcache&#8221;), com termos quase mágicos. Coisas são carregadas, navegadores fazem decisões e tudo simplesmente funciona. Você sabe melhor que isso, certo? Quero dizer, desse desenvolvimento web que estamos falando. Nada sempre &#8220;apenas funciona&#8221;.
-
-<p>Primeiro, vamos falar sobre o fluxo dos eventos. Especificamente, eventos <abbr>DOM</abbr>. Quando seu navegador acessa uma página que aponta para um arquivo de cache manifest, ele aciona uma série de eventos no objeto <code>window.applicationCache</code>. Eu sei que parece complicado mas, confie em mim, essa é a versão mais simples que eu pude pensar e que não deixa de fora informações importantes.</p>
-
-<ol>
-<li>Assim que o navegador percebe o atributo <code>manifest</code> no elemento <code>&lt;html></code>, ele dispara um evento <strong><code>checking</code></strong>. (Todos os eventos listados aqui são acionados pelo objeto <code>window.applicationCache</code>). O evento <code>checking</code> é sempre disparado, independente de você ter visitado esta página ou outra página que aponte para o mesmo arquivo de cache manifest.</li>
-<li>Se seu navegador nunca viu este cache manifest antes...
-  <ul>
-  <li>Ele irá acionar o evento <strong><code>downloading</code></strong>, e então iniciar o download dos arquivos listados no cache manifest.
-  <li>Enquanto ele está baixando, seu navegador irá disparar periodicamente o evento <strong><code>progress</code></strong>, que contém informações de quantos arquivos já foram baixados e quantos arquivos ainda estão na fila download.
-  <li>Depois que todos os arquivos listados no cache manifest forem baixados com sucesso, o navegador dispara um evento final, o <strong><code>cached</code></strong>. Este é seu sinal de que a aplicação web offline está completamente cacheada e pronta para ser usada sem conexão. Pronto, você terminou.
-  </ul>
-<li>Por outro lado, se você visitou esta página anteriormente ou alguma outra página que aponte para o mesmo arquivo de cache manifest, então seu navegador já sabe sobre esse cache manifest. Ele pode já ter alguns arquivos no appcache. Ele pode até conter toda a aplicação web offline funcionando no appcache. Sendo assim, a questão é: o cache manifest mudou desde a última vez que seu navegador o acessou?
-  <ul>
-  <li>Se a resposta for não, o cache manifest não mudou, seu navegador irá imediatamente disparar o evento <strong><code>noupdate</code></strong>. E é isso, está tudo pronto.
-  <li>Se a resposta for sim, o cache manifest <em>mudou</em>, seu navegador irá disparar o evento <strong><code>downloading</code></strong> e começar a baixar todos os arquivos listados no cache manifest novamente.
-  <li>Enquanto os arquivos são baixados, seu navegador irá disparar periodicamente o evento <strong><code>progress</code></strong>, que contém informações como quantos arquivos foram baixados até agora e quantos arquivos ainda estão na fila para serem baixados.
-  <li>Depois que todos os arquivos listados no cache manifest forem baixados novamente com sucesso, o navegador irá acionar um evento final chamado <strong><code>updateready</code></strong>. Este é o sinal de que uma nova versão de sua aplicação web offline está totalmente cacheada e pronta para ser usada sem conexão. <em>A nova versão ainda não está sendo usada.</em> Para fazer uma &#8220;troca rápida&#8221; para a nova versão sem forçar o usuário a atualizar a página atual, você pode chamar manualmente a função <code>window.applicationCache.swapCache()</code>.
-  </ul>
-</ol>
-
-<p>Se, em qualquer ponto deste processo, alguma coisa terrível acontecer de errado, seu navegador irá acionar o evento <strong><code>error</code></strong> e parar. Aqui está uma lista resumida do que pode ter dado errado:
-<ul>
-  <li>O cache manifest retornou um erro 404 de <abbr>HTTP</abbr> (Page Not Found) ou 410 (Permanently Gone).
-  <li>O cache manifest foi encontrado e não foi alterado, mas a página <abbr>HTTP</abbr> que aponta para o arquivo cache manifest não foi carregada corretamente.
-  <li>O cache manifest mudou enquanto o carregamento estava em andamento.
-  <li>O cache manifest foi encontrado e alterado, mas o navegador falhou em baixar um dos arquivos listados no arquivo de cache manifest.
-</ul>
-
-<h2 id=debugging>A fina arte de depurar, também conhecida como &#8220;Me mate! Me mate agora!&#8221;</h2>
-
-<p>Eu quero falar sobre dois pontos importantes aqui. O primeiro é algo que você acabou de ler, mas aposto que não absorveu muito bem, então, lá vai novamente: mesmo que um único arquivo listado em seu arquivo de cache manifest falhar na hora de ser carregado corretamente, todo o processo de cache de sua aplicação web offline irá falhar. Seu navegador irá disparar o evento <code>error</code>, mas não existe nada indicando qual é o problema. Isso pode tornar a depuração de aplicações web offline ainda mais frustrante do que normalmente é.
-
-<p>O segundo ponto importante é algo que, tecnicamente falando, não é um erro, mas vai parecer um problema sério do navegador até que você descubra o que está acontecendo. Tem relação exatamente com o modo que seu navegador checa como um arquivo cache manifest foi alterado. Este é um processo de três fases. É chato mas muito importante, então preste atenção.
-
-
-<ol>
-  <li>Via semântica normal de <abbr>HTTP</abbr>, seu navegador vai checar se o cache manifest expirou. Bem como qualquer outro arquivo sendo servido em <abbr>HTTP</abbr>, seu servidor vai incluir meta-informações, como faz tipicamente, sobre o arquivo nos cabeçalhos de resposta <abbr>HTTP</abbr>. Alguns desses cabeçalhos <abbr>HTTP</abbr> (<code>Expires</code> e <code>Cache-Control</code>) dizem para seu navegador como é permitido cachear arquivos sem ao menos ter que perguntar o que mudou pro servidor. Este tipo de cache não tem relação nenhuma com aplicações web offline. Isso acontece para praticamente todas as páginas <abbr>HTML</abbr>, folhas de estilo, script, imagens ou qualquer outro arquivo na web.
-  <li>Se o cache manifest expirou (de acordo com seu cabeçalho <abbr>HTTP</abbr>), então o navegador irá pedir ao servidor qual a versão mais nova, e se existir uma, o navegador irá baixar a mesma. Para isso, seu navegador aponta uma requisição <abbr>HTTP</abbr> que inclui a data da última modificação do cache manifest, a qual seu servidor inclui na resposta do cabeçalho <abbr>HTTP</abbr> da última vez que seu navegador baixou o arquivo de cache manifest. Se o servidor determinar que o arquivo de cache manifest não mudou desde tal data, ele vai retornar, simplesmente, um status <abbr>304 (Not Modified)</abbr>. Novamente, nada disso é específico para aplicações web offline. Isso acontece, essencialmente, para todos os tipos de arquivos na web.
-  <li>Se o servidor acha que o arquivo de cache manifest mudou desde tal data, ele vai retornar um código de status <abbr>HTTP</abbr> <code>200 (OK)</code>, seguido pelo conteúdo do novo arquivo, junto de um novo cabeçalho <code>Cache-Control</code> e uma nova data de última modificação do arquivo, então o passo 1 e 2 irão funcionar devidamente da próxima vez. (<abbr>HTTP</abbr> é legal; servidores web estão sempre preparados para o futuro. Se seu servidor web definitivamente deve te enviar um arquivo, ele fará tudo que pode para ter certeza que ele não lhe enviará duas vezes, atoa.) Uma vez baixado o novo arquivo de cache manifest, seu navegador irá verificar o conteúdo do seu arquivo baixado com o arquivo baixado da última vez. Se o conteúdo dos arquivos de cache manifest forem iguais, seu navegador não irá fazer o download novamente de qualquer um dos arquivos nele listados.
-</ol>
-
-<p>Qualquer um desses passos pode te confundir enquanto estiver programando e testando sua aplicação web offline. Por exemplo, digamos que você publicou uma versão do seu arquivo de cache manifest; então, dez minutos depois, você percebeu que precisa adicionar outro arquivo nele. Sem problema, certo? Apenas adicione uma linha e publique novamente. OPA! Irá acontecer o seguinte: você atualiza a página, seu navegador percebe que existe o atributo <code>manifest</code>, ele dispara o evento <code>checking</code>, e então... nada. Seu navegador insiste que o arquivo de cache manifest não mudou. Por que? Porque, por padrão, seu servidor web provavelmente está configurado para avisar o navegador para cachear arquivos estáticos por algumas horas (via semântica <abbr>HTTP</abbr>, usando cabeçalhos <code>Cache-Control</code>). Isso significa que seu navegardor nunca vai passar o passo 1 daquele processo de três passos. Certamente, o servidor web sabe que o arquivo mudou, mas seu navegador nunca vai passar perto de fazer a solicitação ao servidor. Por que? Porque a última vez que seu navegador baixou o arquivo de cache manifest, o servidor pediu para cachear os arquivos por algumas horas (via semântica <abbr>HTTP</abbr>, usando cabeçalhos <code>Cache-control</code>). E agora, 10 minutos depois, é exatamente isso que seu navegador está fazendo.
-
-<p>Para deixar claro, isso não é um bug, é uma característica. Tudo está funcionando exatamente do jeito que deveria. Se servidores web não tivessem uma maneira de dizer aos navegadores (e intermediar proxies) a cachear coisas, a web poderia entrar em colapso do dia para noite. Mas isso não é confortante, depois de gastar horas tentando imaginar por que seu navegador não avisa sobre a atualização no arquivo de cache manifest. (E ainda melhor, se você esperar o suficiente, isso vai começar a funcionar novamente! Porque o cache <abbr>HTTP</abbr> expirou! Bem como deveria ser! Me mate! Me mate AGORA!)
-
-<p>Então aqui está uma coisa que você deveria, definitivamente, fazer: reconfigure seu servidor web para que arquivos de cache manifest não sejam cacheados por semânticas <abbr>HTTP</abbr>. Se você esta usando um servidor baseado em Apache, estas duas linhas em seu <code>.htaccess</code> irão fazer a mágica:
-
-<pre><code>ExpiresActive On
+    <p>
+      Qualquer um desses passos pode te confundir enquanto estiver programando e
+      testando sua aplicação web offline. Por exemplo, digamos que você publicou
+      uma versão do seu arquivo de cache manifest; então, dez minutos depois,
+      você percebeu que precisa adicionar outro arquivo nele. Sem problema,
+      certo? Apenas adicione uma linha e publique novamente. OPA! Irá acontecer
+      o seguinte: você atualiza a página, seu navegador percebe que existe o
+      atributo <code>manifest</code>, ele dispara o evento
+      <code>checking</code>, e então... nada. Seu navegador insiste que o
+      arquivo de cache manifest não mudou. Por que? Porque, por padrão, seu
+      servidor web provavelmente está configurado para avisar o navegador para
+      cachear arquivos estáticos por algumas horas (via semântica
+      <abbr>HTTP</abbr>, usando cabeçalhos <code>Cache-Control</code>). Isso
+      significa que seu navegardor nunca vai passar o passo 1 daquele processo
+      de três passos. Certamente, o servidor web sabe que o arquivo mudou, mas
+      seu navegador nunca vai passar perto de fazer a solicitação ao servidor.
+      Por que? Porque a última vez que seu navegador baixou o arquivo de cache
+      manifest, o servidor pediu para cachear os arquivos por algumas horas (via
+      semântica <abbr>HTTP</abbr>, usando cabeçalhos
+      <code>Cache-control</code>). E agora, 10 minutos depois, é exatamente isso
+      que seu navegador está fazendo.
+    </p>
+    <p>
+      Para deixar claro, isso não é um bug, é uma característica. Tudo está
+      funcionando exatamente do jeito que deveria. Se servidores web não
+      tivessem uma maneira de dizer aos navegadores (e intermediar proxies) a
+      cachear coisas, a web poderia entrar em colapso do dia para noite. Mas
+      isso não é confortante, depois de gastar horas tentando imaginar por que
+      seu navegador não avisa sobre a atualização no arquivo de cache manifest.
+      (E ainda melhor, se você esperar o suficiente, isso vai começar a
+      funcionar novamente! Porque o cache <abbr>HTTP</abbr> expirou! Bem como
+      deveria ser! Me mate! Me mate AGORA!)
+    </p>
+    <p>
+      Então aqui está uma coisa que você deveria, definitivamente, fazer:
+      reconfigure seu servidor web para que arquivos de cache manifest não sejam
+      cacheados por semânticas <abbr>HTTP</abbr>. Se você esta usando um
+      servidor baseado em Apache, estas duas linhas em seu
+      <code>.htaccess</code> irão fazer a mágica:
+    </p>
+    <pre><code>ExpiresActive On
 ExpiresDefault "access"</code></pre>
 
-<p>Isso vai, na verdade, desabilitar o cache para todos os arquivos desse tipo do diretório e subdiretórios. Provavelmente, isso não é o que você quer em produção, então você deve qualificar isso com uma diretiva <code>&lt;Files&gt;</code> para que, assim, irá afetar apenas seu arquivo de cache manifest, ou criar um subdiretório que não contenha nada além desse arquivo <code>.htaccess</code> e seus arquivos de cache manifest. Como sempre, detalhes de configuração variam dependendo do servidor, então consulte a documentação do seu para como controlar headers de cache <abbr>HTTP</abbr>.
-
-<p>Uma vez que tenha desabilitado o cache <abbr>HTTP</abbr> para arquivos de cache manifest, você ainda irá encontrar situações onde você atualiza um dos arquivos listados no appcache, mas ele irá continuar com a mesma <abbr>URL</abbr> em seu servidor. Aqui, o segundo passo do processo de três fases irá te sacanear. Se seu arquivo de cache manifest não mudou, o navegador nunca vai te avisar que um dos arquivos cacheados anteriormente mudou. Considere o exemplo a seguir:
-
-<pre><code>CACHE MANIFEST
+    <p>
+      Isso vai, na verdade, desabilitar o cache para todos os arquivos desse
+      tipo do diretório e subdiretórios. Provavelmente, isso não é o que você
+      quer em produção, então você deve qualificar isso com uma diretiva
+      <code>&lt;Files&gt;</code> para que, assim, irá afetar apenas seu arquivo
+      de cache manifest, ou criar um subdiretório que não contenha nada além
+      desse arquivo <code>.htaccess</code> e seus arquivos de cache manifest.
+      Como sempre, detalhes de configuração variam dependendo do servidor, então
+      consulte a documentação do seu para como controlar headers de cache
+      <abbr>HTTP</abbr>.
+    </p>
+    <p>
+      Uma vez que tenha desabilitado o cache <abbr>HTTP</abbr> para arquivos de
+      cache manifest, você ainda irá encontrar situações onde você atualiza um
+      dos arquivos listados no appcache, mas ele irá continuar com a mesma
+      <abbr>URL</abbr> em seu servidor. Aqui, o segundo passo do processo de
+      três fases irá te sacanear. Se seu arquivo de cache manifest não mudou, o
+      navegador nunca vai te avisar que um dos arquivos cacheados anteriormente
+      mudou. Considere o exemplo a seguir:
+    </p>
+    <pre><code>CACHE MANIFEST
 # rev 42
 clock.js
 clock.css</code></pre>
 
-<p>Se você mudou o arquivo <code>clock.css</code> e publicou novamente, você não vai ver mudanças, porque o arquivo de cache manifest não mudou. Toda vez que você faz uma alteração em um dos arquivos da sua aplicação web offline, você vai precisar mudar também o arquivo de cache manifest. Isso pode ser tão fácil quanto mudar um caractere. A maneira mais fácil que encontrei para fazer isso, é incluir uma linha de comentário com um número de revisão. Mude o número da revisão no comentário e, então, o servidor irá entregar as mudanças dos arquivos listados no arquivo de cache manifest, seu navegador irá perceber que o conteúdo do arquivo mudou e irá iniciar o processo de baixar novamente os arquivos listados no arquivo manifest.
-
-<pre><code>CACHE MANIFEST
+    <p>
+      Se você mudou o arquivo <code>clock.css</code> e publicou novamente, você
+      não vai ver mudanças, porque o arquivo de cache manifest não mudou. Toda
+      vez que você faz uma alteração em um dos arquivos da sua aplicação web
+      offline, você vai precisar mudar também o arquivo de cache manifest. Isso
+      pode ser tão fácil quanto mudar um caractere. A maneira mais fácil que
+      encontrei para fazer isso, é incluir uma linha de comentário com um número
+      de revisão. Mude o número da revisão no comentário e, então, o servidor
+      irá entregar as mudanças dos arquivos listados no arquivo de cache
+      manifest, seu navegador irá perceber que o conteúdo do arquivo mudou e irá
+      iniciar o processo de baixar novamente os arquivos listados no arquivo
+      manifest.
+    </p>
+    <pre><code>CACHE MANIFEST
 <mark># rev 43</mark>
 clock.js
 clock.css</code></pre>
 
-<p class=a>&#x2767;
+    <p class="a">❧</p>
+    <h2 id="halma">Vamos Construir Um!</h2>
 
-<h2 id=halma>Vamos Construir Um!</h2>
-
-<p>Lembra-se do jogo Halma que apresentei no <a href=canvas.html#halma>capítulo de canvas</a>, e depois foi melhorado <a href=storage.html#halma>salvando o estado com persistência de armazenamento local</a>? Vamos deixar nosso jogo, Halma, offline.
-
-<p>Para fazer isso, precisamos de um arquivo manifest que liste todos os arquivos que o jogo precisa acessar. Bem, temos a página principal em <abbr>HTML</abbr>, um único arquivo JavaScript que contém todo o código do jogo e&hellip; só. Não existem imagens, porque todos os desenhos são feitos programaticamente via <a href="canvas.html">canvas <abbr>API</abbr></a>. Todo o <abbr>CSS</abbr> necessário está em um elemento <code>&lt;style&gt;</code>, no topo da página <abbr>HTML</abbr>. Então, nosso arquivo de cache manifest fica assim:
-
-<pre><code>CACHE MANIFEST
+    <p>
+      Lembra-se do jogo Halma que apresentei no
+      <a href="canvas.html#halma">capítulo de canvas</a>, e depois foi melhorado
+      <a href="storage.html#halma"
+        >salvando o estado com persistência de armazenamento local</a
+      >? Vamos deixar nosso jogo, Halma, offline.
+    </p>
+    <p>
+      Para fazer isso, precisamos de um arquivo manifest que liste todos os
+      arquivos que o jogo precisa acessar. Bem, temos a página principal em
+      <abbr>HTML</abbr>, um único arquivo JavaScript que contém todo o código do
+      jogo e… só. Não existem imagens, porque todos os desenhos são feitos
+      programaticamente via <a href="canvas.html">canvas <abbr>API</abbr></a
+      >. Todo o <abbr>CSS</abbr> necessário está em um elemento
+      <code>&lt;style&gt;</code>, no topo da página <abbr>HTML</abbr>. Então,
+      nosso arquivo de cache manifest fica assim:
+    </p>
+    <pre><code>CACHE MANIFEST
 halma.html
 ../halma-localstorage.js</code></pre>
 
-<p>Uma palavrinha sobre caminhos. Criei um subdiretório <code>offline/</code> no diretório <code>examples/</code>, e este arquivo de cache manifest mora dentro desse subdiretório. Devido a página <abbr>HTML</abbr>, vamos precisar acrescentar uma coisinha para que funcione offline (mais sobre isso em um minuto), criei também uma cópia separada do arquivo <abbr>HTML</abbr>, que também mora dentro do subdiretório <code>offline/</code>. Porém, graças a não haver mudanças no código JavaScript, <a href="storage.html#halma">adicionamos suporte a armazenamento local</a>, então estou literalmente reutilizando o mesmo arquivo <code>.js</code>, que mora no diretório pai (<code>examples/</code>). Todos juntos, os arquivos parecem com essa estrutura:
-
-<pre><samp>/examples/localstorage-halma.html
+    <p>
+      Uma palavrinha sobre caminhos. Criei um subdiretório
+      <code>offline/</code> no diretório <code>examples/</code>, e este arquivo
+      de cache manifest mora dentro desse subdiretório. Devido a página
+      <abbr>HTML</abbr>, vamos precisar acrescentar uma coisinha para que
+      funcione offline (mais sobre isso em um minuto), criei também uma cópia
+      separada do arquivo <abbr>HTML</abbr>, que também mora dentro do
+      subdiretório <code>offline/</code>. Porém, graças a não haver mudanças no
+      código JavaScript,
+      <a href="storage.html#halma">adicionamos suporte a armazenamento local</a
+      >, então estou literalmente reutilizando o mesmo arquivo <code>.js</code>,
+      que mora no diretório pai (<code>examples/</code>). Todos juntos, os
+      arquivos parecem com essa estrutura:
+    </p>
+    <pre><samp>/examples/localstorage-halma.html
 /examples/halma-localstorage.js
 /examples/offline/halma.manifest
 /examples/offline/halma.html</samp></pre>
 
-<p>No arquivo de cache manifest (<code>/examples/offline/halma.manifest</code>), nós queremos referenciar dois arquivos. Primeiro, a versão offline do <abbr>HTML</abbr> (<code>/examples/offline/hamla.html</code>). Desde que estes dois arquivos estejam no mesmo diretório, será listado no arquivo de manifest sem qualquer prefixo de caminho. Segundo, o arquivo JavaScript que mora no diretório pai (<code>/examples/hamla-localstorage.js</code>). Este está listado no arquivo de manifest usando notação de <abbr>URL</abbr> relativa: <code>../halma-localstorage.js</code>. Isso está do jeito que você deve usar uma <abbr>URL</abbr> em um atributo <code>&lt;img src&gt;</code>. Como você verá no próximo exemplo, também é possível usar caminhos absolutos (que começa na raiz do domínio atual) ou até <abbr>URL</abbr>s absolutas (que apontam arquivos em outros domínios).
+    <p>
+      No arquivo de cache manifest
+      (<code>/examples/offline/halma.manifest</code>), nós queremos referenciar
+      dois arquivos. Primeiro, a versão offline do
+      <abbr>HTML</abbr> (<code>/examples/offline/hamla.html</code>). Desde que
+      estes dois arquivos estejam no mesmo diretório, será listado no arquivo de
+      manifest sem qualquer prefixo de caminho. Segundo, o arquivo JavaScript
+      que mora no diretório pai (<code>/examples/hamla-localstorage.js</code>).
+      Este está listado no arquivo de manifest usando notação de
+      <abbr>URL</abbr> relativa: <code>../halma-localstorage.js</code>. Isso
+      está do jeito que você deve usar uma <abbr>URL</abbr> em um atributo
+      <code>&lt;img src&gt;</code>. Como você verá no próximo exemplo, também é
+      possível usar caminhos absolutos (que começa na raiz do domínio atual) ou
+      até <abbr>URL</abbr>s absolutas (que apontam arquivos em outros domínios).
+    </p>
+    <p>
+      Agora, no arquivo <abbr>HTML</abbr>, precisamos adicionar o atributo
+      <code>manifest</code> que aponta para o arquivo de cache manifest.
+    </p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en" <mark>manifest="halma.manifest"</mark>&gt;</code></pre>
 
-<p>Agora, no arquivo <abbr>HTML</abbr>, precisamos adicionar o atributo <code>manifest</code> que aponta para o arquivo de cache manifest.
+    <p>
+      Pronto! Quando um navegador de suporte offline carregar pela primeira vez
+      a
+      <a href="examples/offline/halma.html"
+        >página <abbr>HTML</abbr> com suporte offline habilitado</a
+      ><a
+        >, será baixado o arquivo de cache manifest e, também baixar todos os
+        arquivos referenciados, armazenando todos no cache da aplicação offline.
+        Deste momento em diante, o algorítmo offline da aplicação tomará conta
+        de tudo, sempre que a página for visitada. Você pode jogar offline, e já
+        que o jogo lembra de seu estado localmente, você pode sair e voltar
+        quantas vezes quiser.
+      </a>
+    </p>
+    <p class="a"><a>❧ </a></p>
+    <h2 id="further-reading"><a>Leia mais (em inglês)</a></h2>
+    <a> <p>Padrões:</p></a>
+    <ul>
+      <a> </a>
+      <li>
+        <a></a
+        ><a
+          href="http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html"
+          >Offline web applications</a
+        >
+        na especificação <abbr>HTML5</abbr>
+      </li>
+    </ul>
 
-<pre><code>&lt;!DOCTYPE html>
-&lt;html lang="en" <mark>manifest="halma.manifest"</mark>></code></pre>
+    <p>Documentação de browser vendors:</p>
+    <ul>
+      <li>
+        <a href="https://developer.mozilla.org/En/Offline_resources_in_Firefox"
+          >Offline resources in Firefox</a
+        >
+      </li>
+      <li>
+        <a
+          href="http://developer.apple.com/safari/library/documentation/iPhone/Conceptual/SafariJSDatabaseGuide/OfflineApplicationCache/OfflineApplicationCache.html"
+          ><abbr>HTML5</abbr> offline application cache</a
+        >, parte do
+        <a
+          href="http://developer.apple.com/safari/library/documentation/iPhone/Conceptual/SafariJSDatabaseGuide/Introduction/Introduction.html"
+          >Safari client-side storage and offline applications programming
+          guide</a
+        >
+      </li>
+    </ul>
 
-<p>Pronto! Quando um navegador de suporte offline carregar pela primeira vez a <a href=examples/offline/halma.html>página <abbr>HTML</abbr> com suporte offline habilitado<a>, será baixado o arquivo de cache manifest e, também baixar todos os arquivos referenciados, armazenando todos no cache da aplicação offline. Deste momento em diante, o algorítmo offline da aplicação tomará conta de tudo, sempre que a página for visitada. Você pode jogar offline, e já que o jogo lembra de seu estado localmente, você pode sair e voltar quantas vezes quiser.
+    <p>Tutoriais e demos:</p>
+    <ul>
+      <li>
+        <a
+          href="http://googlecode.blogspot.com/2009/04/gmail-for-mobile-html5-series-using.html"
+          >Gmail for mobile <abbr>HTML5</abbr> series: using appcache to launch
+          offline - part 1</a
+        >
+      </li>
+      <li>
+        <a
+          href="http://googlecode.blogspot.com/2009/05/gmail-for-mobile-html5-series-part-2.html"
+          >Gmail for mobile <abbr>HTML5</abbr> series: using appcache to launch
+          offline - part 2</a
+        >
+      </li>
+      <li>
+        <a
+          href="http://googlecode.blogspot.com/2009/05/gmail-for-mobile-html5-series-part-3.html"
+          >Gmail for mobile <abbr>HTML5</abbr> series: using appcache to launch
+          offline - part 3</a
+        >
+      </li>
+      <li>
+        <a
+          href="http://jonathanstark.com/blog/2009/09/27/debugging-html-5-offline-application-cache/"
+          >Debugging <abbr>HTML5</abbr> offline application cache</a
+        >
+      </li>
+      <li>
+        <a
+          href="http://hacks.mozilla.org/2010/02/an-html5-offline-image-editor-and-uploader-application/"
+          >an HTML5 offline image editor and uploader application</a
+        >
+      </li>
+      <li>
+        <a href="http://www.20thingsilearned.com/"
+          >20 Things I Learned About Browsers and the Web</a
+        >, uma demonstração avançada que usa aplicações cache e outras técnicas
+        <abbr>HTML5</abbr>.
+      </li>
+    </ul>
 
-<p class=a>&#x2767;
+    <p class="a">❧</p>
+    <p>
+      Este foi “Vamos Tornar Isso Offline” O
+      <a href="table-of-contents.html">Sumário</a> tem muito mais, se você
+      quiser continuar a leitura.
+    </p>
+    <div class="pf">
+      <h4>Você sabia?</h4>
+      <div class="moneybags">
+        <blockquote>
+          <p>
+            Em parceria com Google Press, O’Reilly está distribuindo este livro
+            e uma variadade de formatos, incluindo papel, ePub, Mobi e
+            <abbr>PDF</abbr> sem <abbr>DRM</abbr>. A versão paga é chamada
+            “HTML5: Up &amp; Running,” e está disponível agora. Este capítulo
+            está incluso na edição paga.
+          </p>
+          <p>
+            Se você gostar deste capítulo e quiser demonstrar, você pode
+            <a
+              href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027"
+              >comprar “HTML5: Up &amp; Running” com este link afiliado</a
+            >
+            ou
+            <a href="http://oreilly.com/catalog/9780596806033"
+              >comprar a edição eletrônica diretamente com a O’Reilly</a
+            >. Você irá ter o livro, e eu terei um trocado. Atualmente não
+            aceito doações diretas.
+          </p>
+        </blockquote>
+      </div>
+    </div>
 
-<h2 id=further-reading>Leia mais (em inglês)</h2>
+    <p class="c">Copyright MMIX–MMXI <a href="about.html">Mark Pilgrim</a></p>
+    <form action="https://www.google.com/cse">
+      <div>
+        <input
+          type="hidden"
+          name="cx"
+          value="014437924039265546826:2nmoshc8y3y"
+        /><input type="hidden" name="ie" value="UTF-8" /><input
+          type="search"
+          name="q"
+          size="25"
+          placeholder="powered by Google™"
+        />&nbsp;<input type="submit" name="sa" value="Search" />
+      </div>
+    </form>
+    <script
+      type="text/javascript"
+      async=""
+      src="https://www.google-analytics.com/analytics.js"
+    ></script
+    ><script src="j/jquery.js"></script>
+    <script src="j/modernizr.js"></script>
+    <script src="j/dih5.js"></script>
 
-<p>Padrões:
-
-<ul>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html>Offline web applications</a> na especificação <abbr>HTML5</abbr>
-</ul>
-
-<p>Documentação de browser vendors:
-
-<ul>
-<li><a href=https://developer.mozilla.org/En/Offline_resources_in_Firefox>Offline resources in Firefox</a>
-<li><a href=http://developer.apple.com/safari/library/documentation/iPhone/Conceptual/SafariJSDatabaseGuide/OfflineApplicationCache/OfflineApplicationCache.html><abbr>HTML5</abbr> offline application cache</a>, parte do <a href=http://developer.apple.com/safari/library/documentation/iPhone/Conceptual/SafariJSDatabaseGuide/Introduction/Introduction.html>Safari client-side storage and offline applications programming guide</a>
-</ul>
-
-<p>Tutoriais e demos:
-
-<ul>
-<li><a href=http://googlecode.blogspot.com/2009/04/gmail-for-mobile-html5-series-using.html>Gmail for mobile <abbr>HTML5</abbr> series: using appcache to launch offline - part 1</a>
-<li><a href=http://googlecode.blogspot.com/2009/05/gmail-for-mobile-html5-series-part-2.html>Gmail for mobile <abbr>HTML5</abbr> series: using appcache to launch offline - part 2</a>
-<li><a href=http://googlecode.blogspot.com/2009/05/gmail-for-mobile-html5-series-part-3.html>Gmail for mobile <abbr>HTML5</abbr> series: using appcache to launch offline - part 3</a>
-<li><a href=http://jonathanstark.com/blog/2009/09/27/debugging-html-5-offline-application-cache/>Debugging <abbr>HTML5</abbr> offline application cache</a>
-<li><a href=http://hacks.mozilla.org/2010/02/an-html5-offline-image-editor-and-uploader-application/>an HTML5 offline image editor and uploader application</a>
-<li><a href=http://www.20thingsilearned.com/>20 Things I Learned About Browsers and the Web</a>, uma demonstração avançada que usa aplicações cache e outras técnicas <abbr>HTML5</abbr>.
-</ul>
-
-<p class=a>&#x2767;
-
-<p>Este foi &#8220;Vamos Tornar Isso Offline&#8221; O <a href=table-of-contents.html>Sumário</a> tem muito mais, se você quiser continuar a leitura.
-
-<div class=pf>
-<h4>Você sabia?</h4>
-<div class=moneybags>
-<blockquote><p>Em parceria com Google Press, O&#8217;Reilly está distribuindo este livro e uma variadade de formatos, incluindo papel, ePub, Mobi e <abbr>PDF</abbr> sem <abbr>DRM</abbr>. A versão paga é chamada &#8220;HTML5: Up &amp; Running,&#8221; e está disponível agora. Este capítulo está incluso na edição paga.
-<p>Se você gostar deste capítulo e quiser demonstrar, você pode <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">comprar &#8220;HTML5: Up &amp; Running&#8221; com este link afiliado</a> ou <a href=http://oreilly.com/catalog/9780596806033>comprar a edição eletrônica diretamente com a O&#8217;Reilly</a>. Você irá ter o livro, e eu terei um trocado. Atualmente não aceito doações diretas.
-</blockquote>
-</div>
-</div>
-
-<p class=c>Copyright MMIX&ndash;MMXI <a href=about.html>Mark Pilgrim</a>
-
-<form action=https://www.google.com/cse><div><input type=hidden name=cx value=014437924039265546826:2nmoshc8y3y><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
-<script src=j/jquery.js></script>
-<script src=j/modernizr.js></script>
-<script src=j/dih5.js></script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-6074143-4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-6074143-4');
-</script>
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=UA-6074143-4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-6074143-4');
+    </script>
+  </body>
 </html>

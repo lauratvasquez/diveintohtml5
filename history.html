@@ -1,118 +1,316 @@
 <!DOCTYPE html>
-<html lang=pt-br>
-<meta charset=utf-8>
-<title>History API - Dive Into HTML5</title>
-<!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
-<link rel=alternate type=application/atom+xml href=https://github.com/webfatorial/diveintohtml5/commits/gh-pages.atom>
-<link rel=alternate href=http://diveintohtml5.info/history.html hreflang=en>
-<link rel=stylesheet href=screen.css>
-<style>
-body{counter-reset:h1 11}
-</style>
-<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
+<html
+  lang="pt-br"
+  class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase no-indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"
+>
+  <head>
+    <meta charset="utf-8" />
+    <title>History API - Dive Into HTML5</title>
+    <!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      href="https://github.com/webfatorial/diveintohtml5/commits/gh-pages.atom"
+    />
+    <link
+      rel="alternate"
+      href="http://diveintohtml5.info/history.html"
+      hreflang="en"
+    />
+    <link rel="stylesheet" href="screen.css" />
+    <style>
+      body {
+        counter-reset: h1 11;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      media="only screen and (max-device-width: 480px)"
+      href="mobile.css"
+    />
+  </head>
+  <body cz-shortcut-listen="true">
+    <a href="https://github.com/webfatorial/diveintohtml5"
+      ><img
+        style="position: absolute; top: 0; right: 0; border: 0;"
+        src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+        alt="Fork me on GitHub"
+    /></a>
 
-<a href="https://github.com/webfatorial/diveintohtml5"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <p>
+      Você está aqui: <a href="index.html">Home</a> <span class="u">‣</span>
+      <a href="table-of-contents.html#history">Dive Into <abbr>HTML5</abbr></a>
+      <span class="u">‣</span>
+    </p>
+    <h1><br />Manipulando Histórico <br />Para Diversão &amp; Lucro</h1>
+    <p id="toc"><a href="javascript:showTOC()">exibir índice analítico</a></p>
+    <p class="a">❧</p>
+    <h2 id="divingin">Mergulhando</h2>
 
-<p>Você está aqui: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#history>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
-<h1><br>Manipulando Histórico <br>Para Diversão & Lucro</h1>
-<p id=toc>&nbsp;
-<p class=a>&#x2767;
-<h2 id=divingin>Mergulhando</h2>
+    <p class="f">
+      <img src="i/aoc-a.png" alt="A" width="107" height="105" /> barra de
+      endereços do navegador é talvez a peça mais antiga da interface de usuário
+      no mundo. Há
+      <abbr
+        >URLs<abbr>
+          em outdoors, nas laterais de trens, e até mesmo em grafites de rua.
+          Combinado com o botão de voltar — provavelmente o botão mais
+          importante do navegador — você tem uma maneira poderosa para avançar e
+          voltar no vasto conjunto de recursos interligados chamado de Web.
+        </abbr></abbr
+      >
+    </p>
+    <p>
+      A
+      <a
+        href="http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html"
+        ><abbr>API</abbr> de histórico da <abbr>HTML5</abbr></a
+      >
+      é uma maneira padronizada para manipular o histórico do navegador via
+      script. Parte desta <abbr>API</abbr> — navegando pelo histórico — está
+      disponível em versões anteriores do <abbr>HTML</abbr>. As novas
+      funcionalidades em <abbr>HTML5</abbr> incluem uma maneira de adicionar
+      entradas ao histórico do navegador, para visivelmente alterar a
+      <abbr>URL</abbr> na barra de endereços do navegador (sem precisar
+      atualizar a página), e um evento é acionado quando estas entradas são
+      removidas da pilha do navegador quando o usuário pressiona o botão voltar.
+      Isto quer dizer que a <abbr>URL</abbr> na barra de endereços do navegador
+      pode continuar seu trabalho de ser um identificador único para o recurso
+      atual, mesmo em aplicações com scripts pesados que nem sempre necessitam
+      de uma atualização na página toda.
+    </p>
+    <p class="a">❧</p>
+    <h2 id="why">O porquê</h2>
 
-<p class=f><img src=i/aoc-a.png alt=A width=107 height=105> barra de endereços do navegador é talvez a peça mais antiga da interface de usuário no mundo. Há <abbr>URLs<abbr> em outdoors, nas laterais de trens, e até mesmo em grafites de rua. Combinado com o botão de voltar &mdash; provavelmente o botão mais importante do navegador &mdash; você tem uma maneira poderosa para avançar e voltar no vasto conjunto de recursos interligados chamado de Web.
+    <p class="ss" style="float:left;margin:0 1.75em 1.75em 0;width:218px">
+      <img
+        src="i/openclipart.org_johnny_automatic_demon_reading_Stewart_Orr.png"
+        alt="demon reading book"
+        width="218"
+        height="231"
+      />
+    </p>
+    <p>
+      Por que você iria manipular manualmente a barra de endereços do navegador?
+      Afinal, um simples link pode navegar até uma nova <abbr>URL</abbr>; essa é
+      a forma que a web tem funcionado nos últimos 20 anos. E isso vai continuar
+      funcionando desta forma. Esta <abbr>API</abbr> não tenta revolucionar a
+      web. Muito pelo contrário. Nos últimos anos, os desenvolvedores web têm
+      encontrado novas e excitantes formas de revolucionar a web sem a ajuda de
+      padrões emergentes. A <abbr>API</abbr> de histórico da
+      <abbr>HTML5</abbr> foi na verdade criada para garantir que as
+      <abbr>URL</abbr>s continuem sendo úteis em aplicações web com scripts
+      pesados.
+    </p>
+    <p>
+      Voltando aos princípios, o que uma <abbr>URL</abbr> faz? Ela identifica um
+      recurso único. Você pode fazer um link direto para ela; você pode
+      marcá-la; motores de busca podem indexá-la; você pode copiar, colar e
+      enviá-la por e-mail para outra pessoa, esta pessoa pode clicar e acabar
+      vendo o mesmo recurso que você viu originalmente. Estas são todas
+      qualidades excelentes. <abbr>URL</abbr>s são importantes.
+    </p>
+    <p>
+      Então nos queremos que recursos únicos tenham <abbr>URL</abbr>s únicas.
+      Mas ao mesmo tempo, navegadores sempre tiveram uma limitação fundamental:
+      Se você mudar a <abbr>URL</abbr>, mesmo através de script, ele dispara uma
+      requisição ao servidor web remoto e recarrega toda a página. Isso consome
+      tempo e recursos, e parece um desperdício quando você esta navegando para
+      uma página que é substancialmente semelhante à sua página atual. Tudo que
+      possui na nova página é baixado, até mesmo as partes que são exatamente as
+      mesmas da página atual. Não tem como alterar a <abbr>URL</abbr> em um
+      navegador e este fazer download de apenas metade da página.
+    </p>
+    <p>
+      A <abbr>API</abbr> de histórico do <abbr>HTML5</abbr> permite que você
+      faça isso. Ao invés de desencadear uma atualização na página inteira, você
+      pode utilizar o script para, em essência, baixar metade de uma página.
+      Esta ilusão é um truque difícil, e requer algum trabalho da sua parte.
+      Você está prestando atenção?
+    </p>
+    <p class="ss">
+      <img
+        src="i/openclipart.org_johnny_automatic_card_trick.png"
+        width="287"
+        height="238"
+        alt="Magico fazendo um truque de cartas"
+      />
+    </p>
+    <p id="illusion">
+      Digamos que você possui duas páginas, página A e página B. As duas páginas
+      são 90% idênticas; somente 10% do conteúdo destas páginas é diferente. O
+      usuário navega para a página A, então tenta navegar para a página B. Mas
+      ao invés de desencadear uma atualização na página toda, você interrompe o
+      navegador e segue estes passos manualmente:
+    </p>
+    <ol>
+      <li>
+        <em>Carrega os 10% da página</em> através da página B que é diferente da
+        página A (provavelmente utilizando <code>XMLHttpRequest</code>). Isso
+        vai exigir algumas modificações no lado servidor de sua aplicação web.
+        Você vai precisar escrever um código que retorne apenas os 10% da página
+        B que é diferente da página A. Isso pode ser uma <abbr>URL</abbr> oculta
+        ou um parâmetro de consulta que o usuário final normalmente não vê.
+      </li>
+      <li>
+        <em>Troque o conteúdo alterado</em> (utilizando
+        <code>innerHTML</code> ou outro método <abbr>DOM</abbr>). Talvez você
+        precise redefinir os manipuladores de eventos que foram alterados junto
+        com o conteúdo.
+      </li>
+      <li>
+        <em>Atualize a barra de endereços do navegador</em> com a
+        <abbr>URL</abbr> da página B, utilizando um método particular da
+        <abbr>API</abbr> de histórico do <abbr>HTML5</abbr> que eu já vou
+        mostrar para você.
+      </li>
+    </ol>
 
-<p>A <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html><abbr>API</abbr> de histórico da <abbr>HTML5</abbr></a> é uma maneira padronizada para manipular o histórico do navegador via script. Parte desta <abbr>API</abbr> &mdash; navegando pelo histórico &mdash; está disponível em versões anteriores do <abbr>HTML</abbr>. As novas funcionalidades em <abbr>HTML5</abbr> incluem uma maneira de adicionar entradas ao histórico do navegador, para visivelmente alterar a <abbr>URL</abbr> na barra de endereços do navegador (sem precisar atualizar a página), e um evento é acionado quando estas entradas são removidas da pilha do navegador quando o usuário pressiona o botão voltar. Isto quer dizer que a <abbr>URL</abbr> na barra de endereços do navegador pode continuar seu trabalho de ser um identificador único para o recurso atual, mesmo em aplicações com scripts pesados que nem sempre necessitam de uma atualização na página toda.
+    <p>
+      Ao final desta ilusão (se você a executar corretamente), o navegador acaba
+      com um <abbr>DOM</abbr> que é idêntico a página B, como se você tivesse
+      navegado diretamente para a página B. A barra de endereços do navegador
+      acaba ficando com uma <abbr>URL</abbr> que é idêntica a da página B, como
+      se você tivesse navegado diretamente para a página B. Mas na verdade você
+      nunca navegou até a página B, e você nunca precisou atualizar toda a
+      página. Esta é a ilusão. Mas porque a página "compilada" se parece
+      exatamente como a página B e possui a mesma <abbr>URL</abbr>, o usuário
+      provavelmente nunca notará a diferença (nem te agradecerá por todo
+      trabalho pesado micro gerenciando suas experiências).
+    </p>
+    <p class="a">❧</p>
+    <h2 id="how">O Como</h2>
 
-<p class=a>&#x2767;
+    <p>
+      A <abbr>API</abbr> de histórico do <abbr>HTML5</abbr> é apenas vários
+      métodos no objeto <code>window.history</code>, mais um evento no objeto
+      <code>window</code>. Você pode utilizar isto para
+      <a href="detect.html#history"
+        >detectar o suporte da <abbr>API</abbr> de histórico</a
+      >. O suporte atualmente é limitado para as últimas versões de alguns
+      navegadores, colocando essa técnica diretamente no campo "progressive
+      enhancement".
+    </p>
+    <table class="bc">
+      <caption>
+        Suporte para history.pushState
+      </caption>
+      <thead>
+        <tr>
+          <th title="Internet Explorer">IE</th>
+          <th title="Mozilla Firefox">Firefox</th>
+          <th title="Apple Safari">Safari</th>
+          <th title="Google Chrome">Chrome</th>
+          <th>Opera</th>
+          <th>iPhone</th>
+          <th>Android</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>·</td>
+          <td>4.0+</td>
+          <td>5.0+</td>
+          <td>8.0+</td>
+          <td>11.50+</td>
+          <td>4.2.1+</td>
+          <td>·</td>
+        </tr>
+      </tbody>
+    </table>
 
-<h2 id=why>O porquê</h2>
+    <p>
+      <a href="examples/history/fer.html">dive into dogs</a> é um exemplo
+      simples, mas não trivial de usar a <abbr>API</abbr> de histórico do
+      <abbr>HTML5</abbr>. Ele demonstra um padrão comum: um longo artigo com uma
+      galeria de fotos. Em um navegador compatível, navegando pelos links
+      "Próximo" e "Anterior" na galeria de fotos irá atualizar apenas foto no
+      lugar
+      <em>e atualizará o <abbr>URL</abbr> na barra de endereços do navegador</em
+      >, sem desencadear uma atualização na página inteira. Em navegadores sem
+      suporte - ou, de fato, navegadores compatíveis onde o usuário tenha
+      desabilitado scripts - os links simplesmente funcionam como links normais,
+      levando você a uma nova página com uma atualização na página toda.
+    </p>
+    <p>Isso nos leva a um ponto importante:</p>
+    <div class="pf">
+      <h4>Professor Marcação diz</h4>
+      <div class="inner">
+        <blockquote>
+          <p>
+            Se sua aplicação web falhar em navegadores com script desabilitado,
+            o cachorro de Jakob Nielsen vai até a sua casa e defecará no seu
+            carpete.
+          </p>
+        </blockquote>
+      </div>
+    </div>
 
-<p class=ss style="float:left;margin:0 1.75em 1.75em 0;width:218px"><img src=i/openclipart.org_johnny_automatic_demon_reading_Stewart_Orr.png alt="demon reading book" width=218 height=231>
-
-<p>Por que você iria manipular manualmente a barra de endereços do navegador? Afinal, um simples link pode navegar até uma nova <abbr>URL</abbr>; essa é a forma que a web tem funcionado nos últimos 20 anos. E isso vai continuar funcionando desta forma. Esta <abbr>API</abbr> não tenta revolucionar a web. Muito pelo contrário. Nos últimos anos, os desenvolvedores web têm encontrado novas e excitantes formas de revolucionar a web sem a ajuda de padrões emergentes. A <abbr>API</abbr> de histórico da <abbr>HTML5</abbr> foi na verdade criada para garantir que as <abbr>URL</abbr>s continuem sendo úteis em aplicações web com scripts pesados.
-
-<p>Voltando aos princípios, o que uma <abbr>URL</abbr> faz? Ela identifica um recurso único. Você pode fazer um link direto para ela; você pode marcá-la; motores de busca podem indexá-la; você pode copiar, colar e enviá-la por e-mail para outra pessoa, esta pessoa pode clicar e acabar vendo o mesmo recurso que você viu originalmente. Estas são todas qualidades excelentes. <abbr>URL</abbr>s são importantes.
-
-<p>Então nos queremos que recursos únicos tenham <abbr>URL</abbr>s únicas. Mas ao mesmo tempo, navegadores sempre tiveram uma limitação fundamental: Se você mudar a <abbr>URL</abbr>, mesmo através de script, ele dispara uma requisição ao servidor web remoto e recarrega toda a página. Isso consome tempo e recursos, e parece um desperdício quando você esta navegando para uma página que é substancialmente semelhante à sua página atual. Tudo que possui na nova página é baixado, até mesmo as partes que são exatamente as mesmas da página atual. Não tem como alterar a <abbr>URL</abbr> em um navegador e este fazer download de apenas metade da página.
-
-<p>A <abbr>API</abbr> de histórico do <abbr>HTML5</abbr> permite que você faça isso. Ao invés de desencadear uma atualização na página inteira, você pode utilizar o script para, em essência, baixar metade de uma página. Esta ilusão é um truque difícil, e requer algum trabalho da sua parte. Você está prestando atenção?
-
-<p class=ss><img src=i/openclipart.org_johnny_automatic_card_trick.png width=287 height=238 alt="Magico fazendo um truque de cartas" />
-
-<p id=illusion>Digamos que você possui duas páginas, página A e página B. As duas páginas são 90% idênticas; somente 10% do conteúdo destas páginas é diferente. O usuário navega para a página A, então tenta navegar para a página B. Mas ao invés de desencadear uma atualização na página toda, você interrompe o navegador e segue estes passos manualmente:
-
-<ol>
-<li><em>Carrega os 10% da página</em> através da página B que é diferente da página A (provavelmente utilizando <code>XMLHttpRequest</code>). Isso vai exigir algumas modificações no lado servidor de sua aplicação web. Você vai precisar escrever um código que retorne apenas os 10% da página B que é diferente da página A. Isso pode ser uma <abbr>URL</abbr> oculta ou um parâmetro de consulta que o usuário final normalmente não vê.
-<li><em>Troque o conteúdo alterado</em> (utilizando <code>innerHTML</code> ou outro método <abbr>DOM</abbr>). Talvez você precise redefinir os manipuladores de eventos que foram alterados junto com o conteúdo.
-<li><em>Atualize a barra de endereços do navegador</em> com a <abbr>URL</abbr> da página B, utilizando um método particular da <abbr>API</abbr> de histórico do <abbr>HTML5</abbr> que eu já vou mostrar para você.
-</ol>
-
-<p>Ao final desta ilusão (se você a executar corretamente), o navegador acaba com um <abbr>DOM</abbr> que é idêntico a página B, como se você tivesse navegado diretamente para a página B. A barra de endereços do navegador acaba ficando com uma <abbr>URL</abbr> que é idêntica a da página B, como se você tivesse navegado diretamente para a página B. Mas na verdade você nunca navegou até a página B, e você nunca precisou atualizar toda a página. Esta é a ilusão. Mas porque a página "compilada" se parece exatamente como a página B e possui a mesma <abbr>URL</abbr>, o usuário provavelmente nunca notará a diferença (nem te agradecerá por todo trabalho pesado micro gerenciando suas experiências).
-
-<p class=a>&#x2767;
-
-<h2 id=how>O Como</h2>
-
-<p>A <abbr>API</abbr> de histórico do <abbr>HTML5</abbr> é apenas vários métodos no objeto <code>window.history</code>, mais um evento no objeto <code>window</code>. Você pode utilizar isto para <a href=detect.html#history>detectar o suporte da <abbr>API</abbr> de histórico</a>. O suporte atualmente é limitado para as últimas versões de alguns navegadores, colocando essa técnica diretamente no campo "progressive enhancement".
-
-<table class=bc>
-<caption>Suporte para history.pushState</caption>
-<thead>
-<tr><th title="Internet Explorer">IE<th title="Mozilla Firefox">Firefox<th title="Apple Safari">Safari<th title="Google Chrome">Chrome<th>Opera<th>iPhone<th>Android
-<tbody>
-<tr><td>&middot;<td>4.0+<td>5.0+<td>8.0+<td>11.50+<td>4.2.1+<td>&middot;
-</table>
-
-<p><a href=examples/history/fer.html>dive into dogs</a> é um exemplo simples, mas não trivial de usar a <abbr>API</abbr> de histórico do <abbr>HTML5</abbr>. Ele demonstra um padrão comum: um longo artigo com uma galeria de fotos. Em um navegador compatível, navegando pelos links "Próximo" e "Anterior" na galeria de fotos irá atualizar apenas foto no lugar <em>e atualizará o <abbr>URL</abbr> na barra de endereços do navegador</em>, sem desencadear uma atualização na página inteira. Em navegadores sem suporte - ou, de fato, navegadores compatíveis onde o usuário tenha desabilitado scripts - os links simplesmente funcionam como links normais, levando você a uma nova página com uma atualização na página toda.
-
-<p>Isso nos leva a um ponto importante:
-
-<div class=pf>
-<h4>Professor Marcação diz</h4>
-<div class=inner>
-<blockquote><p>Se sua aplicação web falhar em navegadores com script desabilitado, o cachorro de Jakob Nielsen vai até a sua casa e defecará no seu carpete.
-</blockquote>
-</div>
-</div>
-
-<p id=gallery-markup>Vamos dar uma olhada no exemplo <a href=examples/history/fer.html>dive into dogs</a> e ver como ele funciona. Esta é a marcação relevante para uma única foto:
-
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> O penhor
-<pre><code>&lt;aside id="gallery">
-  &lt;p class="photonav">
-    &lt;a id="photonext" href="casey.html">Next &amp;gt;&lt;/a>
-    &lt;a id="photoprev" href="adagio.html">&amp;lt; Previous&lt;/a>
-  &lt;/p>
-  &lt;figure id="photo">
+    <p id="gallery-markup">
+      Vamos dar uma olhada no exemplo
+      <a href="examples/history/fer.html">dive into dogs</a> e ver como ele
+      funciona. Esta é a marcação relevante para uma única foto:
+    </p>
+    <p class="legend top" style="padding-left:6em">
+      <span class="arrow">↶</span> O penhor
+    </p>
+    <pre><code>&lt;aside id="gallery"&gt;
+  &lt;p class="photonav"&gt;
+    &lt;a id="photonext" href="casey.html"&gt;Next &amp;gt;&lt;/a&gt;
+    &lt;a id="photoprev" href="adagio.html"&gt;&amp;lt; Previous&lt;/a&gt;
+  &lt;/p&gt;
+  &lt;figure id="photo"&gt;
     &lt;img id="photoimg" src="gallery/1972-fer-500.jpg"
-            alt="Fer" width="500" height="375">
-    &lt;figcaption>Fer, 1972&lt;/figcaption>
-  &lt;/figure>
-&lt;/aside></code></pre>
+            alt="Fer" width="500" height="375"&gt;
+    &lt;figcaption&gt;Fer, 1972&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/aside&gt;</code></pre>
 
-<p>Nada diferente aqui. A foto em si é uma <code>&lt;img></code> dentro de uma <code>&lt;figure></code>, o link é um elemento <code>&lt;a></code> normal, e a coisa toda está colocada dentro de um <code>&lt;aside></code>. É importante que estes links regulares realmente funcionem. Todo o código se passa atrás de um <a href=detect.html#history>script de detecção</a>. Se um usuário estiver utilizando um navegador sem suporte, nada do nosso código chique da <abbr>API</abbr> de histórico será executado. E, claro, sempre há alguns usuários com o script desativado por completo.
-
-<p>A função principal pega cada um destes links e repassa para uma função, <code>addClicker()</code>, que faz todo o trabalho de criação e customização do <code>click</code>.
-
-<pre><code>function setupHistoryClicks() {
+    <p>
+      Nada diferente aqui. A foto em si é uma <code>&lt;img&gt;</code> dentro de
+      uma <code>&lt;figure&gt;</code>, o link é um elemento
+      <code>&lt;a&gt;</code> normal, e a coisa toda está colocada dentro de um
+      <code>&lt;aside&gt;</code>. É importante que estes links regulares
+      realmente funcionem. Todo o código se passa atrás de um
+      <a href="detect.html#history">script de detecção</a>. Se um usuário
+      estiver utilizando um navegador sem suporte, nada do nosso código chique
+      da <abbr>API</abbr> de histórico será executado. E, claro, sempre há
+      alguns usuários com o script desativado por completo.
+    </p>
+    <p>
+      A função principal pega cada um destes links e repassa para uma função,
+      <code>addClicker()</code>, que faz todo o trabalho de criação e
+      customização do <code>click</code>.
+    </p>
+    <pre><code>function setupHistoryClicks() {
   addClicker(document.getElementById("photonext"));
   addClicker(document.getElementById("photoprev"));
 }</code></pre>
 
-<p>Esta é a função <code>addClicker()</code>. Ela pega um elemento <code>&lt;a></code> e adiciona um <code>click</code> manipulado. E é neste <code>click</code> manipulado onde as coisas ficam interessantes.
-
-<pre style="float:left"><code>function addClicker(link) {
+    <p>
+      Esta é a função <code>addClicker()</code>. Ela pega um elemento
+      <code>&lt;a&gt;</code> e adiciona um <code>click</code> manipulado. E é
+      neste <code>click</code> manipulado onde as coisas ficam interessantes.
+    </p>
+    <pre style="float:left"><code>function addClicker(link) {
   link.addEventListener("click", function(e) {
     swapPhoto(link.href);
     history.pushState(null, null, link.href);
     e.preventDefault();
   }, false);
 }</code></pre>
-<p class="legend right" style="margin-top:5em"><span class=arrow>&nbsp;&#x219c;</span> Interessante
-
-<p style="clear:left">A função <code>swapPhoto()</code> realiza as duas primeiras etapas de nossa <a href=#illusion>ilusão de três etapas</a>. A primeira metade da função <code>swapPhoto()</code> faz parte da <abbr>URL</abbr> do link de navegação em si &mdash; <code>casey.html</code>, <code>adagio.html</code>, <i>&amp;</i>c. &mdash; e constrói uma <abbr>URL</abbr> para uma página oculta que contém nada mais que a marcação exigida pela próxima foto.
-
-<pre><code>function swapPhoto(href) {
+    <p class="legend right" style="margin-top:5em">
+      <span class="arrow">&nbsp;↜</span> Interessante
+    </p>
+    <p style="clear:left">
+      A função <code>swapPhoto()</code> realiza as duas primeiras etapas de
+      nossa <a href="#illusion">ilusão de três etapas</a>. A primeira metade da
+      função <code>swapPhoto()</code> faz parte da <abbr>URL</abbr> do link de
+      navegação em si — <code>casey.html</code>, <code>adagio.html</code>,
+      <i>&amp;</i>c. — e constrói uma <abbr>URL</abbr> para uma página oculta
+      que contém nada mais que a marcação exigida pela próxima foto.
+    </p>
+    <pre><code>function swapPhoto(href) {
   var req = new XMLHttpRequest();
   req.open("GET",
            "https://diveintohtml5.com.br/examples/history/gallery/" +
@@ -120,23 +318,43 @@ body{counter-reset:h1 11}
            false);
   req.send(null);</code></pre>
 
-<p>Aqui temos um exemplo de marcação retornado por <code><a href=https://diveintohtml5.com.br/examples/history/gallery/casey.html>https://diveintohtml5.com.br/examples/history/gallery/casey.html</a></code>. (Você pode verificar isso no seu navegador visitando a <abbr>URL</abbr> diretamente.)
-
-<pre><code>&lt;p class="photonav">
-  &lt;a id="photonext" href="brandy.html">Next &amp;gt;&lt;/a>
-  &lt;a id="photoprev" href="fer.html">&amp;lt; Previous&lt;/a>
-&lt;/p>
-&lt;figure id="photo">
+    <p>
+      Aqui temos um exemplo de marcação retornado por
+      <code
+        ><a
+          href="https://diveintohtml5.com.br/examples/history/gallery/casey.html"
+          >https://diveintohtml5.com.br/examples/history/gallery/casey.html</a
+        ></code
+      >. (Você pode verificar isso no seu navegador visitando a
+      <abbr>URL</abbr> diretamente.)
+    </p>
+    <pre><code>&lt;p class="photonav"&gt;
+  &lt;a id="photonext" href="brandy.html"&gt;Next &amp;gt;&lt;/a&gt;
+  &lt;a id="photoprev" href="fer.html"&gt;&amp;lt; Previous&lt;/a&gt;
+&lt;/p&gt;
+&lt;figure id="photo"&gt;
   &lt;img id="photoimg" src="gallery/1984-casey-500.jpg"
-          alt="Casey" width="500" height="375">
-  &lt;figcaption>Casey, 1984&lt;/figcaption>
-&lt;/figure></code></pre>
+          alt="Casey" width="500" height="375"&gt;
+  &lt;figcaption&gt;Casey, 1984&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
 
-<p>Isso lhe parece familiar? Deveria. Este é a <a href=#gallery-markup>mesma marcação básica utilizada na página original</a> para mostrar a primeira foto.
-
-<p>A segunda metade da função <code>swapPhoto()</code> realiza a segunda etapa de nossa <a href=#illusion>ilusão de três etapas</a>: inserindo a nova marcação baixada dentro da página atual. Lembre-se que tínhamos um <code>&lt;aside></code> envolvendo todo a figura, foto e legenda. Então inserindo a nova marcação da foto é uma linha, atribuindo a propriedade <code>innerHTML</code> do <code>&lt;aside></code> para a propriedade <code>responseText</code> retornada do <code>XMLHttpRequest</code>.
-
-<pre><code> if (req.status == 200) {
+    <p>
+      Isso lhe parece familiar? Deveria. Este é a
+      <a href="#gallery-markup"
+        >mesma marcação básica utilizada na página original</a
+      >
+      para mostrar a primeira foto.
+    </p>
+    <p>
+      A segunda metade da função <code>swapPhoto()</code> realiza a segunda
+      etapa de nossa <a href="#illusion">ilusão de três etapas</a>: inserindo a
+      nova marcação baixada dentro da página atual. Lembre-se que tínhamos um
+      <code>&lt;aside&gt;</code> envolvendo todo a figura, foto e legenda. Então
+      inserindo a nova marcação da foto é uma linha, atribuindo a propriedade
+      <code>innerHTML</code> do <code>&lt;aside&gt;</code> para a propriedade
+      <code>responseText</code> retornada do <code>XMLHttpRequest</code>.
+    </p>
+    <pre><code> if (req.status == 200) {
     document.getElementById("gallery").innerHTML = req.responseText;
     setupHistoryClicks();
     return true;
@@ -144,88 +362,309 @@ body{counter-reset:h1 11}
   return false;
 }</code></pre>
 
-<p>(Observe também a chamada para o <code>setupHistoryClicks()</code>. Isto é necessário para reiniciar os eventos do <code>click</code> manipulados nos novos links de navegação. Atribuindo <code>innerHTML</code> remove qualquer traço dos links antigos e seus eventos.)
+    <p>
+      (Observe também a chamada para o <code>setupHistoryClicks()</code>. Isto é
+      necessário para reiniciar os eventos do <code>click</code> manipulados nos
+      novos links de navegação. Atribuindo <code>innerHTML</code> remove
+      qualquer traço dos links antigos e seus eventos.)
+    </p>
+    <p>
+      Agora, vamos voltar para a função <code>addClicker()</code>. Depois de
+      alterar a foto com sucesso, temos mais uma etapa para a nossa
+      <a href="#illusion">ilusão de três etapas</a>: atribuir a
+      <abbr>URL</abbr> na barra de navegação do navegador sem atualizar a
+      página.
+    </p>
+    <p class="legend top" style="padding-left:6em">
+      <span class="arrow">↶</span> A troca
+    </p>
+    <pre><code>history.pushState(null, null, link.href);</code></pre>
 
-<p>Agora, vamos voltar para a função <code>addClicker()</code>. Depois de alterar a foto com sucesso, temos mais uma etapa para a nossa <a href=#illusion>ilusão de três etapas</a>: atribuir a <abbr>URL</abbr> na barra de navegação do navegador sem atualizar a página.
+    <p>A função <code>history.pushState()</code> recebe três parâmetros:</p>
+    <ol>
+      <li>
+        <code>state</code> pode ser qualquer dado com estrutura
+        <abbr>JSON</abbr>. Isso é passado de volta para o manipulador do evento
+        <code>popstate</code>, o qual você irá aprender em algum momento. Nós
+        não precisamos acompanhar nenhum estado nesta demonstração, isto será
+        mantido como <code>null</code>.
+      </li>
+      <li>
+        <code>title</code> pode ser qualquer string. Este parâmetro não é
+        utilizado atualmente pelos principais navegadores. Se você quiser
+        alterar o título da página, você deve armazenar isto em um argumento
+        <code>state</code> e atribuir isto manualmente no callback do seu
+        <code>popstate</code>.
+      </li>
+      <li>
+        <code>url</code> pode ser, bem, qualquer <abbr>URL</abbr>. Isto é a
+        <abbr>URL</abbr> que você gostaria que aparecesse na barra de endereços
+        do navegador.
+      </li>
+    </ol>
 
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> A troca
-<pre><code>history.pushState(null, null, link.href);</code></pre>
-
-<p>A função <code>history.pushState()</code> recebe três parâmetros:
-
-<ol>
-<li><code>state</code> pode ser qualquer dado com estrutura <abbr>JSON</abbr>. Isso é passado de volta para o manipulador do evento <code>popstate</code>, o qual você irá aprender em algum momento. Nós não precisamos acompanhar nenhum estado nesta demonstração, isto será mantido como <code>null</code>.
-<li><code>title</code> pode ser qualquer string. Este parâmetro não é utilizado atualmente pelos principais navegadores. Se você quiser alterar o título da página, você deve armazenar isto em um argumento <code>state</code> e atribuir isto manualmente no callback do seu <code>popstate</code>.
-<li><code>url</code> pode ser, bem, qualquer <abbr>URL</abbr>. Isto é a <abbr>URL</abbr> que você gostaria que aparecesse na barra de endereços do navegador.
-</ol>
-
-<p>Ao chamar <code>history.pushState</code> mudará imediatamente a <abbr>URL</abbr> na barra de endereços do navegador. Então, este é o final da ilusão? Bom, não exatamente. Nós ainda precisamos falar sobre o que acontece quando o usuário pressiona o importantíssimo botão de voltar.
-
-<p>Geralmente quando um usuário navega a uma nova página (com uma atualização de página inteira), o navegador joga a nova <abbr>URL</abbr> para a lista de histórico, faz os downloads e desenha a nova página. Quando o usuário pressiona o botão voltar, o navegador joga uma página para fora da pilha de histórico e redesenha a página anterior. Mas o que acontece agora que você gerou um curto-circuito de navegação para evitar a atualização da página toda? Bom, você fingiu o "avançar" para uma nova <abbr>URL</abbr>, então agora você pode também fingir um "voltar" para a <abbr>URL</abbr> anterior. E a chave para forjar este "retorno" é o evento <code>popstate</code>.
-
-<p class="legend top" style="padding-left:6em"><span class=arrow>&#x21b6;</span> O prestígio
-<pre><code>window.addEventListener("popstate", function(e) {
+    <p>
+      Ao chamar <code>history.pushState</code> mudará imediatamente a
+      <abbr>URL</abbr> na barra de endereços do navegador. Então, este é o final
+      da ilusão? Bom, não exatamente. Nós ainda precisamos falar sobre o que
+      acontece quando o usuário pressiona o importantíssimo botão de voltar.
+    </p>
+    <p>
+      Geralmente quando um usuário navega a uma nova página (com uma atualização
+      de página inteira), o navegador joga a nova <abbr>URL</abbr> para a lista
+      de histórico, faz os downloads e desenha a nova página. Quando o usuário
+      pressiona o botão voltar, o navegador joga uma página para fora da pilha
+      de histórico e redesenha a página anterior. Mas o que acontece agora que
+      você gerou um curto-circuito de navegação para evitar a atualização da
+      página toda? Bom, você fingiu o "avançar" para uma nova <abbr>URL</abbr>,
+      então agora você pode também fingir um "voltar" para a
+      <abbr>URL</abbr> anterior. E a chave para forjar este "retorno" é o evento
+      <code>popstate</code>.
+    </p>
+    <p class="legend top" style="padding-left:6em">
+      <span class="arrow">↶</span> O prestígio
+    </p>
+    <pre><code>window.addEventListener("popstate", function(e) {
     swapPhoto(location.pathname);
 }</code></pre>
 
-<p>Após você ter utilizado a função <code>history.pushState()</code> para jogar a <abbr>URL</abbr> para o histórico do navegador, quando o usuário pressionar o botão voltar, o navegador irá disparar um evento <code>popstate</code> no objeto <code>window</code>. Esta é a sua chance de completar a ilusão de uma vez por todas. Porque fazer alguma coisa desaparecer não é o suficiente; você tem que trazer ela de volta.
+    <p>
+      Após você ter utilizado a função <code>history.pushState()</code> para
+      jogar a <abbr>URL</abbr> para o histórico do navegador, quando o usuário
+      pressionar o botão voltar, o navegador irá disparar um evento
+      <code>popstate</code> no objeto <code>window</code>. Esta é a sua chance
+      de completar a ilusão de uma vez por todas. Porque fazer alguma coisa
+      desaparecer não é o suficiente; você tem que trazer ela de volta.
+    </p>
+    <p>
+      Nesta demonstração, “trazer de volta” é tão simples quanto trocando a foto
+      original, que nós fazemos ao chamar o <code>swapPhoto()</code> com a
+      localização atual. Quando o retorno do <code>popstate</code> é chamado, a
+      <abbr>URL</abbr> visível na barra de endereço do navegador foi trocada
+      pela <abbr>URL</abbr> antiga. E também, a propriedade
+      <code>location</code> global já foi atualizada com a antiga
+      <abbr>URL</abbr>.
+    </p>
+    <p>
+      Para ajudar a visualizar isso, vamos percorrer a ilusão inteira desde do
+      começo ao fim:
+    </p>
+    <ul>
+      <li>
+        Usuário carrega
+        <code
+          ><a href="https://diveintohtml5.com.br/examples/history/fer.html"
+            >https://diveintohtml5.com.br/examples/history/fer.html</a
+          ></code
+        >, vê a história e a foto de Fer.
+      </li>
+      <li>
+        Usuário clica no link “Próximo,” um elemento <code>&lt;a&gt;</code> que
+        tem uma propriedade <code>href</code> para
+        <code
+          ><a href="https://diveintohtml5.com.br/examples/history/casey.html"
+            >https://diveintohtml5.com.br/examples/history/casey.html</a
+          ></code
+        >.
+      </li>
+      <li>
+        Ao invés de navegar para
+        <code
+          ><a href="https://diveintohtml5.com.br/examples/history/casey.html"
+            >https://diveintohtml5.com.br/examples/history/casey.html</a
+          ></code
+        >
+        com uma atualização completa na página, o evento
+        <code>click</code> manipulado dentro do elemento
+        <code>&lt;a&gt;</code> executa seu próprio código.
+      </li>
+      <li>
+        Nosso evento <code>click</code> manipulado chama a função
+        <code>swapPhoto()</code>, que cria um objeto
+        <code>XMLHttpRequest</code> para baixar o fragmento de código
+        <abbr>HTML</abbr> localizado em
+        <code
+          ><a
+            href="https://diveintohtml5.com.br/examples/history/gallery/casey.html"
+            >https://diveintohtml5.com.br/examples/history/<strong>gallery</strong>/casey.html</a
+          ></code
+        >.
+      </li>
+      <li>
+        A função <code>swapPhoto()</code> atribui a propriedade
+        <code>innerHTML</code> para o que envolve a galeria de foto (um elemento
+        <code>&lt;aside&gt;</code>), substituindo assim a foto e a legenda de
+        Fer pela foto e legenda de Casey.
+      </li>
+      <li>
+        Finalmente, nosso <code>click</code> manipulado chama a função
+        <code>history.pushState()</code> para manualmente alterar a
+        <abbr>URL</abbr> na barra de endereços do navegador para
+        <code
+          ><a href="https://diveintohtml5.com.br/examples/history/casey.html"
+            >https://diveintohtml5.com.br/examples/history/casey.html</a
+          ></code
+        >.
+      </li>
+      <li>Usuário clica no botão voltar do navegador.</li>
+      <li>
+        O navegador percebe que uma <abbr>URL</abbr> foi manualmente adicionada
+        na pilha de histórico (pela função <code>history.pushState()</code>). Ao
+        invés de navegar para a <abbr>URL</abbr> anterior e redesenhar a página
+        toda, o navegador simplesmente atualiza a barra de endereço para a
+        <abbr>URL</abbr> antiga (<code
+          ><a href="https://diveintohtml5.com.br/examples/history/fer.html"
+            >https://diveintohtml5.com.br/examples/history/fer.html</a
+          ></code
+        >) e executa um evento <code>popstate</code>.
+      </li>
+      <li>
+        Nosso <code>popstate</code> customizado manipula chamadas para a função
+        <code>swapPhoto()</code> novamente, desta vez com a
+        <abbr>URL</abbr> antiga que agora já esta visível na barra de endereços
+        do navegador.
+      </li>
+      <li>
+        Novamente utilizando <code>XMLHttpRequest</code>, a função
+        <code>swapPhoto()</code> baixa o fragmento de
+        <abbr>HTML</abbr> localizado em
+        <code
+          ><a
+            href="https://diveintohtml5.com.br/examples/history/gallery/fer.html"
+            >https://diveintohtml5.com.br/examples/history/<strong>gallery</strong>/fer.html</a
+          ></code
+        >
+        e atribui a propriedade <code>innerHTML</code> do elemento
+        <code>&lt;aside&gt;</code>, substituindo assim a foto e a legenda de
+        Casey com uma foto e legenda de Fer.
+      </li>
+    </ul>
 
-<p>Nesta demonstração, &#8220;trazer de volta&#8221; é tão simples quanto trocando a foto original, que nós fazemos ao chamar o <code>swapPhoto()</code> com a localização atual. Quando o retorno do <code>popstate</code> é chamado, a <abbr>URL</abbr> visível na barra de endereço do navegador foi trocada pela <abbr>URL</abbr> antiga. E também, a propriedade <code>location</code> global já foi atualizada com a antiga <abbr>URL</abbr>.
+    <p>
+      A ilusão está completa. Todas as evidências visíveis (o conteúdo da página
+      e a <abbr>URL</abbr> na barra de endereços) sugerem ao usuário que ele
+      navegou uma página a frente e uma para trás. Mas nenhuma página foi
+      completamente atualizada - isto foi tudo uma ilusão meticulosamente
+      executada.
+    </p>
+    <p class="a">❧</p>
+    <h2 id="further-reading">Leitura complementar</h2>
 
-<p>Para ajudar a visualizar isso, vamos percorrer a ilusão inteira desde do começo ao fim:
+    <ul>
+      <li>
+        <a
+          href="http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html"
+          >Session history and navigation</a
+        >
+        nas normas de projeto da <abbr>HTML5</abbr>
+      </li>
+      <li>
+        <a
+          href="https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history"
+          >Manipulating the browser history</a
+        >
+        no centro de desenvolvimento Mozilla
+      </li>
+      <li>
+        <a href="http://html5demos.com/history"
+          >Simple history <abbr>API</abbr> demo</a
+        >
+      </li>
+      <li>
+        <a href="http://www.20thingsilearned.com/"
+          >20 Things I Learned About Browsers and the Web</a
+        >, uma demonstração avançada que usa a <abbr>API</abbr> de histórico e
+        outras técnicas <abbr>HTML5</abbr>
+      </li>
+      <li>
+        <a href="http://www.facebook.com/note.php?note_id=438532093919"
+          >Using <abbr>HTML5</abbr> today</a
+        >
+        descreve a utilização da <abbr>API</abbr> de histórico no
+        <a href="http://www.facebook.com/">Facebook</a>
+      </li>
+      <li>
+        <a href="https://github.com/blog/760-the-tree-slider"
+          >The Tree Slider</a
+        >
+        descreve a uitlização da <abbr>API</abbr> de histórico no
+        <a href="https://github.com/">Github</a>
+      </li>
+      <li>
+        <a href="https://github.com/balupton/History.js/">History.js</a>, uma
+        meta-<abbr>API</abbr> para manipulação de histórico em ambos os
+        navegadores mais novos e mais velhos
+      </li>
+    </ul>
 
-<ul>
-<li>Usuário carrega <code><a href=https://diveintohtml5.com.br/examples/history/fer.html>https://diveintohtml5.com.br/examples/history/fer.html</a></code>, vê a história e a foto de Fer.
-<li>Usuário clica no link &#8220;Próximo,&#8221; um elemento <code>&lt;a></code> que tem uma propriedade <code>href</code> para <code><a href=https://diveintohtml5.com.br/examples/history/casey.html>https://diveintohtml5.com.br/examples/history/casey.html</a></code>.
-<li>Ao invés de navegar para <code><a href=https://diveintohtml5.com.br/examples/history/casey.html>https://diveintohtml5.com.br/examples/history/casey.html</a></code> com uma atualização completa na página, o evento <code>click</code> manipulado dentro do elemento <code>&lt;a></code> executa seu próprio código.
-<li>Nosso evento <code>click</code> manipulado chama a função <code>swapPhoto()</code>, que cria um objeto <code>XMLHttpRequest</code> para baixar o fragmento de código <abbr>HTML</abbr> localizado em <code><a href=https://diveintohtml5.com.br/examples/history/gallery/casey.html>https://diveintohtml5.com.br/examples/history/<strong>gallery</strong>/casey.html</a></code>.
-<li>A função <code>swapPhoto()</code> atribui a propriedade <code>innerHTML</code> para o que envolve a galeria de foto (um elemento <code>&lt;aside></code>), substituindo assim a foto e a legenda de Fer pela foto e legenda de Casey.
-<li>Finalmente, nosso <code>click</code> manipulado chama a função <code>history.pushState()</code> para manualmente alterar a <abbr>URL</abbr> na barra de endereços do navegador para <code><a href=https://diveintohtml5.com.br/examples/history/casey.html>https://diveintohtml5.com.br/examples/history/casey.html</a></code>.
-<li>Usuário clica no botão voltar do navegador.
-<li>O navegador percebe que uma <abbr>URL</abbr> foi manualmente adicionada na pilha de histórico (pela função <code>history.pushState()</code>). Ao invés de navegar para a <abbr>URL</abbr> anterior e redesenhar a página toda, o navegador simplesmente atualiza a barra de endereço para a <abbr>URL</abbr> antiga (<code><a href=https://diveintohtml5.com.br/examples/history/fer.html>https://diveintohtml5.com.br/examples/history/fer.html</a></code>) e executa um evento <code>popstate</code>.
-<li>Nosso <code>popstate</code> customizado manipula chamadas para a função <code>swapPhoto()</code> novamente, desta vez com a <abbr>URL</abbr> antiga que agora já esta visível na barra de endereços do navegador.
-<li>Novamente utilizando <code>XMLHttpRequest</code>, a função <code>swapPhoto()</code> baixa o fragmento de <abbr>HTML</abbr> localizado em <code><a href=https://diveintohtml5.com.br/examples/history/gallery/fer.html>https://diveintohtml5.com.br/examples/history/<strong>gallery</strong>/fer.html</a></code> e atribui a propriedade <code>innerHTML</code> do elemento <code>&lt;aside></code>, substituindo assim a foto e a legenda de Casey com uma foto e legenda de Fer.
-</ul>
+    <p class="a">❧</p>
+    <p>
+      Este foi “Manipulando Histórico Para Diversão &amp; Lucro” O
+      <a href="table-of-contents.html">Sumário</a> tem muito mais, se você
+      quiser continuar a leitura.
+    </p>
+    <div class="pf">
+      <h4>Você sabia?</h4>
+      <div class="moneybags">
+        <blockquote>
+          <p>
+            Em associação a Google Press, O’Reilly está distribuindo este livro
+            em variados formatos, incluindo papel, ePub, Mobi,
+            <abbr>DRM</abbr>-free e <abbr>PDF</abbr>. A edição paga é chamada
+            “HTML5: Up &amp; Running,” e está disponível agora.
+          </p>
+          <p>
+            Se você gostou dessa introdução e quer mostrar como apreciou, basta
+            <a
+              href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027"
+              >comprar o livro “HTML5: Up &amp; Running” com esse link
+              afiliado</a
+            >
+            ou
+            <a href="http://oreilly.com/catalog/9780596806033"
+              >comprar a edição eletrônica diretamente da O’Reilly</a
+            >. Você vai ganhar um livro, e eu vou ganhar um trocado. Atualmente
+            não aceito doações diretas.
+          </p>
+        </blockquote>
+      </div>
+    </div>
 
-<p>A ilusão está completa. Todas as evidências visíveis (o conteúdo da página e a <abbr>URL</abbr> na barra de endereços) sugerem ao usuário que ele navegou uma página a frente e uma para trás. Mas nenhuma página foi completamente atualizada - isto foi tudo uma ilusão meticulosamente executada.
+    <p class="c">Copyright MMIX–MMXI <a href="about.html">Mark Pilgrim</a></p>
+    <form action="https://www.google.com/cse">
+      <div>
+        <input
+          type="hidden"
+          name="cx"
+          value="014437924039265546826:2nmoshc8y3y"
+        /><input type="hidden" name="ie" value="UTF-8" /><input
+          type="search"
+          name="q"
+          size="25"
+          placeholder="powered by Google™"
+        />&nbsp;<input type="submit" name="sa" value="Search" />
+      </div>
+    </form>
+    <script
+      type="text/javascript"
+      async=""
+      src="https://www.google-analytics.com/analytics.js"
+    ></script
+    ><script src="j/jquery.js"></script>
+    <script src="j/modernizr.js"></script>
+    <script src="j/dih5.js"></script>
 
-<p class=a>&#x2767;
-
-<h2 id=further-reading>Leitura complementar</h2>
-
-<ul>
-<li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html>Session history and navigation</a> nas normas de projeto da <abbr>HTML5</abbr>
-<li><a href=https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history>Manipulating the browser history</a> no centro de desenvolvimento Mozilla
-<li><a href=http://html5demos.com/history>Simple history <abbr>API</abbr> demo</a>
-<li><a href=http://www.20thingsilearned.com/>20 Things I Learned About Browsers and the Web</a>, uma demonstração avançada que usa a <abbr>API</abbr> de histórico e outras técnicas <abbr>HTML5</abbr>
-<li><a href="http://www.facebook.com/note.php?note_id=438532093919">Using <abbr>HTML5</abbr> today</a> descreve a utilização da <abbr>API</abbr> de histórico no <a href=http://www.facebook.com/>Facebook</a>
-<li><a href=https://github.com/blog/760-the-tree-slider>The Tree Slider</a> descreve a uitlização da <abbr>API</abbr> de histórico no <a href=https://github.com/>Github</a>
-<li><a href=https://github.com/balupton/History.js/>History.js</a>, uma meta-<abbr>API</abbr> para manipulação de histórico em ambos os navegadores mais novos e mais velhos</ul>
-
-<p class=a>&#x2767;
-<p>Este foi &#8220;Manipulando Histórico Para Diversão & Lucro&#8221; O <a href=table-of-contents.html>Sumário</a> tem muito mais, se você quiser continuar a leitura.
-
-<div class=pf>
-<h4>Você sabia?</h4>
-<div class=moneybags>
-<blockquote><p>Em associação a Google Press, O&#8217;Reilly está distribuindo este livro em variados formatos, incluindo papel, ePub, Mobi, <abbr>DRM</abbr>-free e <abbr>PDF</abbr>. A edição paga é chamada &#8220;HTML5: Up &amp; Running,&#8221; e está disponível agora.
-<p>Se você gostou dessa introdução e quer mostrar como apreciou, basta <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">comprar o livro &#8220;HTML5: Up &amp; Running&#8221; com esse link afiliado</a> ou <a href=http://oreilly.com/catalog/9780596806033>comprar a edição eletrônica diretamente da O&#8217;Reilly</a>. Você vai ganhar um livro, e eu vou ganhar um trocado. Atualmente não aceito doações diretas.
-</blockquote>
-</div>
-</div>
-
-<p class=c>Copyright MMIX&ndash;MMXI <a href=about.html>Mark Pilgrim</a>
-
-<form action=https://www.google.com/cse><div><input type=hidden name=cx value=014437924039265546826:2nmoshc8y3y><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
-<script src=j/jquery.js></script>
-<script src=j/modernizr.js></script>
-<script src=j/dih5.js></script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-6074143-4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-6074143-4');
-</script>
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=UA-6074143-4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-6074143-4');
+    </script>
+  </body>
 </html>
