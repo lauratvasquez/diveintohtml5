@@ -1,1 +1,1 @@
-/* Contains 3rd-party software. Full legal notices available at http://diveintohtml5.org/legal.html */
+/* Contains 3rd-party software. Full legal notices available at https://diveintohtml5.com.br/legal.html */

@@ -5,7 +5,7 @@ Lets you pretend that <video> works in IE (via Flash and FlowPlayer)
 NOTE: AS OF MAY 2010, THIS CODE IS DEPRECATED.
 I NO LONGER RECOMMEND USING IT FOR ANY PURPOSE.
 IT IS INCLUDED HERE SIMPLY SO OLD LINKS TO IT DO NOT BREAK.
-SEE http://diveintohtml5.org/video.html#example
+SEE https://diveintohtml5.com.br/video.html#example
 OR  http://camendesign.com/code/video_for_everybody/test.html
 FOR A BETTER SOLUTION TO FALL BACK TO FLASH VIDEO.
 
