@@ -1,11 +1,12 @@
 ---
-# this is an empty front matter
+title: Dive Into HTML5
 ---
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8" />
-    <title>Dive Into HTML5</title>
+    <title>{{ page.title }}</title>
     <link
       rel="alternate"
       type="application/atom+xml"
@@ -15,7 +16,7 @@
     <link rel="stylesheet" href="screen.css" />
     <style>
       h1:before {
-        content: '';
+        content: "";
       }
       h1,
       h2,
@@ -75,12 +76,7 @@
     <link rel="prefetch" href="introduction.html" />
   </head>
   <body cz-shortcut-listen="true">
-    <a href="https://github.com/webfatorial/diveintohtml5"
-      ><img
-        style="position: absolute; top: 0; right: 0; border: 0;"
-        src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-        alt="Fork me on GitHub"
-    /></a>
+    {% include fork.html %}
 
     <hgroup>
       <h1>Dive Into HTML5</h1>
@@ -89,8 +85,6 @@
         100% traduzido<br />
         pela <a href="team.html">comunidade</a>
       </h3>
-      <!-- <h3>traduzido com</h3>
-<h3>contribuições da comunidade <a href="team.html">(?)</a></h3> -->
     </hgroup>
 
     <p class="a">❧</p>
@@ -125,7 +119,6 @@
     </p>
     <h3>Sumário</h3>
 
-    <!-- toc -->
     <ol style="list-style: none;">
       <li
         style='background: url("i/dot.png") 0px 0.8em repeat-x rgb(255, 255, 255);'
@@ -249,7 +242,6 @@
         ><span class="number">B</span>
       </li>
     </ol>
-    <!-- /toc -->
 
     {% include quote.html %}
     {% include copyright.html %}
@@ -258,16 +250,16 @@
     <script src="j/dih5.js"></script>
     <script>
       $(function() {
-        $('ol').css('list-style', 'none');
-        $('li').each(function(i) {
+        $("ol").css("list-style", "none");
+        $("li").each(function(i) {
           var num = i;
-          if ($(this).hasClass('app')) {
+          if ($(this).hasClass("app")) {
             num = String.fromCharCode(53 + num);
           }
           $(this)
-            .wrapInner('<span class=title></span>')
-            .append('<span class=number>' + num + '</span>')
-            .css('background', '#fff url(i/dot.png) repeat-x 0 0.8em');
+            .wrapInner("<span class=title></span>")
+            .append("<span class=number>" + num + "</span>")
+            .css("background", "#fff url(i/dot.png) repeat-x 0 0.8em");
         });
       });
     </script>

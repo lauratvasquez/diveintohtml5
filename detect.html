@@ -1,5 +1,5 @@
 ---
-# this is an empty front matter
+title: Detectando funcionalidade do HTML5 - Dive Into HTML5
 ---
 <!DOCTYPE html>
 <html
@@ -8,7 +8,7 @@
 >
   <head>
     <meta charset="utf-8" />
-    <title>Detectando funcionalidade da HTML5 - Dive Into HTML5</title>
+    <title>{{ page.title }}</title>
     <!--[if lt IE 9]><script src=j/html5.js></script><![endif]-->
     <link
       rel="alternate"
@@ -45,19 +45,14 @@
     ></script>
   </head>
   <body cz-shortcut-listen="true">
-    <a href="https://github.com/webfatorial/diveintohtml5"
-      ><img
-        style="position: absolute; top: 0; right: 0; border: 0;"
-        src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-        alt="Fork me on GitHub"
-    /></a>
+    {% include fork.html %}
 
     <p>
       Você está aqui: <a href="index.html">Home</a> <span class="u">‣</span>
       <a href="table-of-contents.html#detect">Dive Into <abbr>HTML5</abbr></a>
       <span class="u">‣</span>
     </p>
-    <h1><br />Detectando funcionalidades da <abbr>HTML5</abbr></h1>
+    <h1><br />Detectando funcionalidades do <abbr>HTML5</abbr></h1>
     <p id="toc"><a href="javascript:showTOC()">exibir índice analítico</a></p>
     <p class="a">❧</p>
     <h2 id="divingin">Mergulhando</h2>
